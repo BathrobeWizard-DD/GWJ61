@@ -49,7 +49,7 @@ jobs:
       -
         name: 🤖 Setup Project
         run: |
-          mkdir -p build/${{ matrix.export }}
+          mkdir -p Build/${{ matrix.export }}
           chmod +x *.sh
           ./setup-git-version.sh
       -
