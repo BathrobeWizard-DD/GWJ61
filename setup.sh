@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+mkdir -p Build/{web,windows,mac}
+
 if [[ -f ".git/PROJECT_INITIALIZED" ]]; then
 	echo "This repository has already been initialized, skipping..."
 	exit 0
