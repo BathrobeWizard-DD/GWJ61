@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwemfdrxpmx88"]
+
+[ext_resource type="Script" path="res://Game/Entities/Player/Player.gd" id="1_i818j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qye2w"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_eomb5"]
+size = Vector2(128, 256)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_i818j")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.483155, 0)
+shape = SubResource("BoxShape3D_qye2w")
+
+[node name="Sprite" type="Sprite3D" parent="."]
+offset = Vector2(0, 128)
+texture = SubResource("PlaceholderTexture2D_eomb5")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99149, 0.13018, 0, -0.13018, 0.99149, 0, 3.70446, 6.47611)
