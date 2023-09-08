@@ -4,16 +4,38 @@ To be decided...
 
 ## Pre-requisites
 
+- Git (https://git-scm.com/downloads)
 - Git-LFS (https://git-lfs.github.com)
 - Godot 4.1 (https://godotengine.org/download)
 - Code editor (Godot, JetBrains, VSCode, etc.)
+- Python 3.10+ (https://www.python.org/downloads)
+- Pipenv (https://pipenv.pypa.io/en/latest/install/#installing-pipenv)
 
-## Development
+## Setup
 
-Make sure you have GIT-LFS installed and enabled before cloning the repository.
-Once you clone, it should automatically download the large files and setup the
-git hooks for it.
+1. Clone the repository with LFS enabled
+2. Run `setup.sh` (in bash) to install hooks and python packages
+3. Open the project in Godot 4.1
 
-Once cloned, run `./setup.sh` in a bash terminal to setup the project that will
-add hooks to update the `git_info.gd` which is used to display the current 
-version in the game.
+This will install pre and post commit hooks that will automatically format your
+code, as well as update the `git_info.gd` file with the current commit info.
+
+## Structure
+
+- `/Addons`: Any external plugins we use, ideally as git submodules
+- `/Build`: Exported game files (mainly used in CI/CD pipelines)
+- `/Distribution`: Files and assets we intend to distribute with the game exports
+- `/Globals`: Auto-loaded or named classes for delivering global functionality
+- `/Game`: Main Module that delivers the core game experience
+- `/Content`: (FUTURE) Downloadable content modules that extend the game
+- `/Scenes`: Main Screens and Transitions that frame the game experience
+- `/UI`: Main UI Patterns, Components, Actions, and attachable Traits
+
+## Linting and Formatting
+
+The project uses https://github.com/Scony/godot-gdscript-toolkit for linting
+and formatting, which you can reach by running `pipenv run fmt` or 
+`pipenv run lint`.
+
+Note that the formatter is executed automatically before you commit, so it 
+should keep the codebase relatively clean.
