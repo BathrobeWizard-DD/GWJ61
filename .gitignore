@@ -16,7 +16,7 @@ addons
 git_info.gd
 
 # Build files
-build/**/*
+Build/**/*
 
 # Large files
 **/*.avi.import
