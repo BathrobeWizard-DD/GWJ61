@@ -1,5 +1,6 @@
 extends MarginContainer
 
+
 func _ready() -> void:
 	get_tree().get_root().size_changed.connect(func(): update_margin())
 	update_margin()

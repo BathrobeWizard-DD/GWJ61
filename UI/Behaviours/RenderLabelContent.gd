@@ -1,5 +1,9 @@
 extends Label
 
+@export var update_on_ready = true
+@export var update_on_physics_process = false
+@export var update_on_process = false
+
 var template: String
 var pattern: RegEx:
 	get:
@@ -9,16 +13,8 @@ var pattern: RegEx:
 		regex.compile("\\{([a-z:_]+)\\}")
 		return regex
 
-var data = {
-	"game_title": ProjectSettings.get_setting("application/config/name"),
-	"git_version": _git_version,
-}
-
-@export var update_on_ready = true
-@export var update_on_physics_process = false
-@export var update_on_process = false
-
 # region: Lifecycle
+
 
 func _ready() -> void:
 	template = self.text
@@ -35,29 +31,18 @@ func _process(_delta) -> void:
 	if update_on_process:
 		render()
 
-# endregion
-
-# region: Internal Helpers
-
-func _keycode_name(keycode: int) -> String:
-	return OS.get_keycode_string(keycode)
-
-
-func _git_version() -> String:
-	if Git.Build != null:
-		return "%s#%s" % ["DEBUG" if OS.is_debug_build() else "RELEASE", Git.Build]
-	return "#%s" % [Git.Commit]
 
 # endregion
 
 # region: Actions
 
+
 func render() -> void:
 	for result in pattern.search_all(template):
 		var key = result.get_string(1)
-		if data.has(key) == false:
+		if not (key in Variables):
 			continue
-		var value = data[key].call() if data[key] is Callable else data[key]
+		var value = Variables[key].call() if Variables[key] is Callable else Variables[key]
 		self.text = template.replace("{%s}" % key, value)
 
 # endregion

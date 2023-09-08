@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://5wa46lfuork6"]
 
-[ext_resource type="PackedScene" uid="uid://dehmbmk4b3n6q" path="res://UI/components/ReleaseOverlay/ReleaseOverlay.tscn" id="1_1xwkt"]
+[ext_resource type="PackedScene" uid="uid://dehmbmk4b3n6q" path="res://UI/Components/ReleaseOverlay/ReleaseOverlay.tscn" id="1_1xwkt"]
 
 [node name="BottomPanel" type="CanvasLayer"]
 

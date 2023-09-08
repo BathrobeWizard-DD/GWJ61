@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dehmbmk4b3n6q"]
 
-[ext_resource type="Script" path="res://ui/components/ReleaseOverlay/ReleaseOverlay.gd" id="1_jt5xl"]
-[ext_resource type="Script" path="res://ui/scripts/RenderPerformanceInfo.gd" id="2_eaujb"]
-[ext_resource type="Script" path="res://ui/scripts/RenderLabelContent.gd" id="3_tr1gh"]
+[ext_resource type="Script" path="res://UI/Components/ReleaseOverlay/ReleaseOverlay.gd" id="1_4roc0"]
+[ext_resource type="Script" path="res://UI/Behaviours/RenderPerformanceInfo.gd" id="2_bsj42"]
+[ext_resource type="Script" path="res://UI/Behaviours/RenderLabelContent.gd" id="3_v2opn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0os6g"]
 
@@ -18,7 +18,7 @@ size_flags_vertical = 8
 theme_override_constants/margin_left = 48
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 12
-script = ExtResource("1_jt5xl")
+script = ExtResource("1_4roc0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -26,10 +26,11 @@ size_flags_vertical = 8
 
 [node name="PerformanceInfo" type="Label" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 11
 text = "{performance}"
-script = ExtResource("2_eaujb")
+script = ExtResource("2_bsj42")
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
@@ -38,7 +39,8 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_0os6g")
 
 [node name="GameVersion" type="Label" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 11
-text = "{git_version}"
-script = ExtResource("3_tr1gh")
+text = "{game_version}"
+script = ExtResource("3_v2opn")
