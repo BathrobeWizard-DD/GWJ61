@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmikg5ggislwo"]
+[gd_scene load_steps=7 format=3 uid="uid://bmikg5ggislwo"]
 
 [ext_resource type="MeshLibrary" uid="uid://evhx1ceapo13" path="res://Game/Assets/Sandbox.meshlib" id="1_pq8rn"]
 [ext_resource type="PackedScene" uid="uid://cwemfdrxpmx88" path="res://Game/Entities/Player/Player.tscn" id="2_bih6x"]
+[ext_resource type="PackedScene" uid="uid://c8xyvbpwjk7q7" path="res://Game/Assets/Objects/Pyramid.tscn" id="3_mokgd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3tuhp"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -36,3 +37,6 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_bih6x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3791, 3.27926, -1.76382)
+
+[node name="Pyramid" parent="." instance=ExtResource("3_mokgd")]
+transform = Transform3D(4.30083, 0, 0, 0, 4.30083, 0, 0, 0, 4.30083, -3.9253, 2.94481, -24.9863)
