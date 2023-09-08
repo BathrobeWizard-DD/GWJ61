@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://btd76qwux7ud2"]
+
+[ext_resource type="Script" path="res://UI/Behaviours/RenderLabelContent.gd" id="1_1tmir"]
+[ext_resource type="Script" path="res://UI/Actions/SwitchToScene.gd" id="2_qfxg6"]
+[ext_resource type="Script" path="res://UI/Actions/QuitGame.gd" id="3_2mo8a"]
+[ext_resource type="PackedScene" uid="uid://b18l1f52smrku" path="res://UI/Traits/HideOnWebPlatform.tscn" id="4_efl8f"]
+[ext_resource type="PackedScene" uid="uid://5wa46lfuork6" path="res://UI/BottomPanel.tscn" id="5_ng5qm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3peju"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -76.0
+offset_right = 1244.0
+offset_bottom = 705.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Screen" type="CanvasLayer" parent="."]
+
+[node name="Spacing" type="MarginContainer" parent="Screen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 96
+
+[node name="Container" type="MarginContainer" parent="Screen/Spacing"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Layout" type="VBoxContainer" parent="Screen/Spacing/Container"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="Screen/Spacing/Container/Layout"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "{game_title}"
+script = ExtResource("1_1tmir")
+
+[node name="(spacer)" type="HSeparator" parent="Screen/Spacing/Container/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 48
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3peju")
+
+[node name="Start" type="Button" parent="Screen/Spacing/Container/Layout"]
+layout_mode = 2
+text = "Start"
+alignment = 0
+script = ExtResource("2_qfxg6")
+
+[node name="Settings" type="Button" parent="Screen/Spacing/Container/Layout"]
+layout_mode = 2
+text = "Settings"
+alignment = 0
+script = ExtResource("2_qfxg6")
+
+[node name="Quit" type="Button" parent="Screen/Spacing/Container/Layout"]
+layout_mode = 2
+text = "Quit"
+alignment = 0
+script = ExtResource("3_2mo8a")
+
+[node name="HideOnWebPlatform" parent="Screen/Spacing/Container/Layout/Quit" instance=ExtResource("4_efl8f")]
+
+[node name="BottomPanel" parent="." instance=ExtResource("5_ng5qm")]
