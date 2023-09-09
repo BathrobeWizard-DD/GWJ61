@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b2fpbs0nmf55x"]
+
+[ext_resource type="Texture2D" uid="uid://b7jtgnhvut62e" path="res://Game/Assets/Textures/Spike_Base_color.png" id="1_88skj"]
+[ext_resource type="Texture2D" uid="uid://b3krwqsnv4ny" path="res://Game/Assets/Textures/Spike_Normal_DirectX.png" id="2_3swor"]
+
+[resource]
+albedo_color = Color(0.92549, 0.698039, 0.447059, 1)
+albedo_texture = ExtResource("1_88skj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_3swor")
