@@ -1,20 +1,31 @@
-[gd_scene load_steps=27 format=3 uid="uid://b0ucgi85tgkp8"]
+[gd_scene load_steps=44 format=3 uid="uid://b0ucgi85tgkp8"]
 
 [ext_resource type="Texture2D" uid="uid://cndugp40i4kpc" path="res://Game/Assets/2D Art/Textures/Grass_tileable.png" id="1_ubmp7"]
 [ext_resource type="Shader" path="res://Game/Assets/Shaders/WaterShader.gdshader" id="2_apy7k"]
 [ext_resource type="Texture2D" uid="uid://diu2ri4c3ay6a" path="res://Game/Assets/2D Art/Characters/Player/Static character test.png" id="2_j40gq"]
+[ext_resource type="Texture2D" uid="uid://ceg6jyjdkx4hg" path="res://Game/Assets/2D Art/Textures/Stone_1.png" id="3_vnsx8"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="3_vqyut"]
 [ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="4_5nnsn"]
+[ext_resource type="Texture2D" uid="uid://cr8njqwoh4qqc" path="res://Game/Assets/2D Art/Textures/Stone_AO.png" id="4_7r0u3"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="5_t4iu4"]
+[ext_resource type="Texture2D" uid="uid://cfcc4rt3vgr8h" path="res://Game/Assets/2D Art/Textures/Stone_Spec.png" id="5_toicf"]
 [ext_resource type="Shader" path="res://Game/Assets/Shaders/SkyShader.gdshader" id="6_5tiua"]
+[ext_resource type="Texture2D" uid="uid://db01jtx655wk" path="res://Game/Assets/2D Art/Textures/Stone_Normal.png" id="6_18dm2"]
+[ext_resource type="Texture2D" uid="uid://bswbqh80ud53f" path="res://Game/Assets/2D Art/Textures/Stone_Brick_edge.png" id="7_1aopw"]
 [ext_resource type="ArrayMesh" uid="uid://c01rkb4njxv8b" path="res://Game/Assets/3D Art/Trees/Tree_1.obj" id="7_bv4vt"]
 [ext_resource type="PackedScene" uid="uid://bhyauhxglkpe6" path="res://Game/Assets/3D Art/Trees/Tree_1.tscn" id="8_ke1wa"]
+[ext_resource type="Texture2D" uid="uid://c2uqxjw5ge7sk" path="res://Game/Assets/2D Art/Textures/Stone_Brick_Edge_AO.png" id="8_mtl4x"]
+[ext_resource type="Texture2D" uid="uid://dxs7ay6q24eyy" path="res://Game/Assets/2D Art/Textures/Stone_Brick_Edge_Spec.png" id="9_fxbro"]
+[ext_resource type="Texture2D" uid="uid://bhahjl0s7l1cc" path="res://Game/Assets/2D Art/Textures/Stone_Brick_Edge_Normal.png" id="10_y4k4x"]
+[ext_resource type="Texture2D" uid="uid://cuecmpdeo1p3e" path="res://Game/Assets/2D Art/Textures/Stone_Brick_!.png" id="11_tw2cw"]
+[ext_resource type="Texture2D" uid="uid://dhoc8gi4heo5i" path="res://Game/Assets/2D Art/Textures/Stone_Brick_Spec.png" id="12_8h7wg"]
+[ext_resource type="Texture2D" uid="uid://c1yjgu57bkr4q" path="res://Game/Assets/2D Art/Textures/Stone_Brick_Normal.png" id="13_uacec"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bnlb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ktqu"]
 albedo_texture = ExtResource("1_ubmp7")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_afsdo"]
-material = SubResource("StandardMaterial3D_2bnlb")
+material = SubResource("StandardMaterial3D_4ktqu")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_t1qxr"]
 
@@ -52,10 +63,52 @@ material = SubResource("ShaderMaterial_vyn5f")
 subdivide_width = 3
 subdivide_depth = 3
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwaey"]
+albedo_texture = ExtResource("3_vnsx8")
+metallic = 1.0
+metallic_specular = 0.72
+metallic_texture = ExtResource("5_toicf")
+normal_enabled = true
+normal_scale = 1.35
+normal_texture = ExtResource("6_18dm2")
+ao_enabled = true
+ao_texture = ExtResource("4_7r0u3")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mbimi"]
+material = SubResource("StandardMaterial3D_mwaey")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smjlu"]
+albedo_texture = ExtResource("7_1aopw")
+metallic_specular = 0.71
+metallic_texture = ExtResource("9_fxbro")
+normal_enabled = true
+normal_scale = 3.11
+normal_texture = ExtResource("10_y4k4x")
+ao_enabled = true
+ao_texture = ExtResource("8_mtl4x")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kknxo"]
+material = SubResource("StandardMaterial3D_smjlu")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gkw7j"]
+albedo_texture = ExtResource("11_tw2cw")
+metallic_specular = 0.72
+metallic_texture = ExtResource("12_8h7wg")
+normal_enabled = true
+normal_scale = 3.11
+normal_texture = ExtResource("13_uacec")
+ao_texture = ExtResource("4_7r0u3")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_20syx"]
+material = SubResource("StandardMaterial3D_gkw7j")
+size = Vector2(0.5, 0.5)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_5itqv"]
 size = Vector3(20.195, 1, 13.6868)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8xc51"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kscvn"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_vqyut")
@@ -90,7 +143,7 @@ _surfaces = [{
 "format": 4123,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_8xc51"),
+"material": SubResource("ShaderMaterial_kscvn"),
 "primitive": 3,
 "vertex_count": 8,
 "vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 255, 127)
@@ -344,6 +397,56 @@ skeleton = NodePath("../..")
 [node name="MeshInstance3D34" type="MeshInstance3D" parent="Ground test"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.69852, 0, 7.60784)
 mesh = SubResource("PlaneMesh_afsdo")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="Ground test"]
+transform = Transform3D(1, 0, 0, 0, -0.0164752, 0.999864, 0, -0.999864, -0.0164752, 2.42494, 0.158848, 1.07443)
+mesh = SubResource("PlaneMesh_mbimi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D39" type="MeshInstance3D" parent="Ground test"]
+transform = Transform3D(1, 0, 0, 0, -0.0164752, 0.999864, 0, -0.999864, -0.0164752, 1.93758, 0.158848, 1.07443)
+mesh = SubResource("PlaneMesh_mbimi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="Ground test"]
+transform = Transform3D(1, 0, 0, 0, -0.0164752, 0.999864, 0, -0.999864, -0.0164752, 1.45171, 0.158848, 1.07443)
+mesh = SubResource("PlaneMesh_mbimi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D41" type="MeshInstance3D" parent="Ground test"]
+transform = Transform3D(1, 0, 0, 0, -0.0164752, 0.999864, 0, -0.999864, -0.0164752, 1.45171, 0.633802, 1.07443)
+mesh = SubResource("PlaneMesh_mbimi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D42" type="MeshInstance3D" parent="Ground test"]
+transform = Transform3D(1, 0, 0, 0, -0.0164752, 0.999864, 0, -0.999864, -0.0164752, 1.9369, 0.633802, 1.07443)
+mesh = SubResource("PlaneMesh_mbimi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D43" type="MeshInstance3D" parent="Ground test"]
+transform = Transform3D(1, 0, 0, 0, -0.0164752, 0.999864, 0, -0.999864, -0.0164752, 2.43456, 0.633802, 1.07443)
+mesh = SubResource("PlaneMesh_mbimi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D44" type="MeshInstance3D" parent="Ground test"]
+transform = Transform3D(-0.464974, -8.10258e-05, 0.00491738, -0.00491804, 0.00766055, -0.464911, 0, -0.464937, -0.00766097, 1.93251, 0.984515, 1.06824)
+mesh = SubResource("PlaneMesh_kknxo")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D45" type="MeshInstance3D" parent="Ground test"]
+transform = Transform3D(-0.464976, -7.78168e-05, 0.00472263, -0.00472327, 0.00766058, -0.464913, 0, -0.464937, -0.00766097, 1.70305, 0.984515, 1.06824)
+mesh = SubResource("PlaneMesh_kknxo")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D46" type="MeshInstance3D" parent="Ground test"]
+transform = Transform3D(0.465, 0, 0, 0, -0.00766097, 0.464937, 0, -0.464937, -0.00766097, 1.93251, 1.21332, 1.06824)
+mesh = SubResource("PlaneMesh_20syx")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D47" type="MeshInstance3D" parent="Ground test"]
+transform = Transform3D(0.465, 0, 0, 0, -0.00766097, 0.464937, 0, -0.464937, -0.00766097, 1.70305, 1.21332, 1.06824)
+mesh = SubResource("PlaneMesh_20syx")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D35" type="MeshInstance3D" parent="Ground test"]
