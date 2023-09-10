@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ds86yc3qxmvp5"
+path="res://.godot/imported/Small_Tree.obj-2b6cd10787f2b97e799578daefb2771a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Small_Tree.obj-2b6cd10787f2b97e799578daefb2771a.mesh"]
+
+source_file="res://Game/Assets/3D Art/Trees/Small_Tree.obj"
+dest_files=["res://.godot/imported/Small_Tree.obj-2b6cd10787f2b97e799578daefb2771a.mesh", "res://.godot/imported/Small_Tree.obj-2b6cd10787f2b97e799578daefb2771a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

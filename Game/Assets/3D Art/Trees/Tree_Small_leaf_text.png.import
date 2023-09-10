@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://but3dijl6tewl"
-path.s3tc="res://.godot/imported/Leaf_Text.png-c0b8cd4211fe2be29a71e5e606d78d3d.s3tc.ctex"
+uid="uid://o16qfhb72jd3"
+path.s3tc="res://.godot/imported/Tree_Small_leaf_text.png-9a382248c86da18e38dce17609142d3c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://Game/Assets/3D Art/Trees/Leaf_Text.png"
-dest_files=["res://.godot/imported/Leaf_Text.png-c0b8cd4211fe2be29a71e5e606d78d3d.s3tc.ctex"]
+source_file="res://Game/Assets/3D Art/Trees/Tree_Small_leaf_text.png"
+dest_files=["res://.godot/imported/Tree_Small_leaf_text.png-9a382248c86da18e38dce17609142d3c.s3tc.ctex"]
 
 [params]
 
