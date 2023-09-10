@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cd08bjjl7ef2u"]
 
-[ext_resource type="PackedScene" path="res://Game/Assets/3D Art/Trees/Tree_Small.glb" id="1_nh6mu"]
+[ext_resource type="PackedScene" uid="uid://cd08bjjl7ef2u" path="res://Game/Assets/3D Art/Trees/Tree_Small.glb" id="1_nh6mu"]
 [ext_resource type="Texture2D" uid="uid://np4wc30qi6x3" path="res://Game/Assets/2D Art/Textures/Leaf_Text.png" id="1_o23uk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oj0dv"]

@@ -34,27 +34,27 @@ region = Rect2(3072, 1536, 512, 512)
 atlas = ExtResource("1_p0ubf")
 region = Rect2(3584, 1536, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7eod7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c81sd"]
 atlas = ExtResource("1_p0ubf")
 region = Rect2(0, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8bfdg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1u6k"]
 atlas = ExtResource("1_p0ubf")
 region = Rect2(512, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d0pc3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_atk04"]
 atlas = ExtResource("1_p0ubf")
 region = Rect2(1024, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xk62f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr1ut"]
 atlas = ExtResource("1_p0ubf")
 region = Rect2(1536, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5tq6x"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u43hb"]
 atlas = ExtResource("1_p0ubf")
 region = Rect2(2048, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pd6im"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iha72"]
 atlas = ExtResource("1_p0ubf")
 region = Rect2(2560, 0, 512, 512)
 
@@ -130,23 +130,23 @@ animations = [{
 "speed": 12.0
 }, {
 "frames": [{
-"duration": 3.0,
-"texture": SubResource("AtlasTexture_7eod7")
-}, {
-"duration": 3.0,
-"texture": SubResource("AtlasTexture_8bfdg")
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_c81sd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d0pc3")
-}, {
-"duration": 3.0,
-"texture": SubResource("AtlasTexture_xk62f")
+"texture": SubResource("AtlasTexture_e1u6k")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5tq6x")
+"texture": SubResource("AtlasTexture_atk04")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pd6im")
+"texture": SubResource("AtlasTexture_qr1ut")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_u43hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iha72")
 }],
 "loop": true,
 "name": &"Idle",

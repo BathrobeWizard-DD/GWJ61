@@ -1,8 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://b0ucgi85tgkp8"]
+[gd_scene load_steps=40 format=3 uid="uid://b0ucgi85tgkp8"]
 
 [ext_resource type="Texture2D" uid="uid://cndugp40i4kpc" path="res://Game/Assets/2D Art/Textures/Grass_tileable.png" id="1_ubmp7"]
 [ext_resource type="Shader" path="res://Game/Assets/Shaders/WaterShader.gdshader" id="2_apy7k"]
-[ext_resource type="Texture2D" uid="uid://diu2ri4c3ay6a" path="res://Game/Assets/2D Art/Characters/Player/Static character test.png" id="2_j40gq"]
 [ext_resource type="Texture2D" uid="uid://ceg6jyjdkx4hg" path="res://Game/Assets/2D Art/Textures/Stone_1.png" id="3_vnsx8"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="3_vqyut"]
 [ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="4_5nnsn"]
@@ -12,13 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://db01jtx655wk" path="res://Game/Assets/2D Art/Textures/Stone_Normal.png" id="6_18dm2"]
 [ext_resource type="Texture2D" uid="uid://bswbqh80ud53f" path="res://Game/Assets/2D Art/Textures/Stone_Brick_edge.png" id="7_1aopw"]
 [ext_resource type="ArrayMesh" uid="uid://c01rkb4njxv8b" path="res://Game/Assets/3D Art/Trees/Tree_1.obj" id="7_bv4vt"]
-[ext_resource type="PackedScene" uid="uid://cd08bjjl7ef2u" path="res://Game/Assets/3D Art/Trees/Tree_1.tscn" id="8_ke1wa"]
 [ext_resource type="Texture2D" uid="uid://c2uqxjw5ge7sk" path="res://Game/Assets/2D Art/Textures/Stone_Brick_Edge_AO.png" id="8_mtl4x"]
 [ext_resource type="Texture2D" uid="uid://dxs7ay6q24eyy" path="res://Game/Assets/2D Art/Textures/Stone_Brick_Edge_Spec.png" id="9_fxbro"]
 [ext_resource type="Texture2D" uid="uid://bhahjl0s7l1cc" path="res://Game/Assets/2D Art/Textures/Stone_Brick_Edge_Normal.png" id="10_y4k4x"]
 [ext_resource type="Texture2D" uid="uid://cuecmpdeo1p3e" path="res://Game/Assets/2D Art/Textures/Stone_Brick_!.png" id="11_tw2cw"]
 [ext_resource type="Texture2D" uid="uid://dhoc8gi4heo5i" path="res://Game/Assets/2D Art/Textures/Stone_Brick_Spec.png" id="12_8h7wg"]
 [ext_resource type="Texture2D" uid="uid://c1yjgu57bkr4q" path="res://Game/Assets/2D Art/Textures/Stone_Brick_Normal.png" id="13_uacec"]
+[ext_resource type="SpriteFrames" uid="uid://vop5cy84ooo3" path="res://Game/Entities/Player/Player_Animated_Sprites.tres" id="14_1xs8y"]
 [ext_resource type="Environment" uid="uid://ccwaowgain8fa" path="res://Game/Assets/Shaders/Outside_World_Envi.tres" id="18_sf6ei"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ktqu"]
@@ -108,7 +107,7 @@ size = Vector2(0.5, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5itqv"]
 size = Vector3(20.195, 1, 13.6868)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y344j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_blxwf"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_vqyut")
@@ -143,7 +142,7 @@ _surfaces = [{
 "format": 4123,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_y344j"),
+"material": SubResource("ShaderMaterial_blxwf"),
 "primitive": 3,
 "vertex_count": 8,
 "vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 255, 127)
@@ -418,12 +417,15 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.171479, -0.385416, 3.13483)
 shape = SubResource("BoxShape3D_5itqv")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 4.94939, 0.679515, 1.83803)
+[node name="Sprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.29, 0, 0, 0, 0.29, 0, 0, 0, 0.29, 4.94939, 0.90483, 1.83803)
 shaded = true
 alpha_cut = 3
 render_priority = 1
-texture = ExtResource("2_j40gq")
+sprite_frames = ExtResource("14_1xs8y")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.242225
 
 [node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="."]
 multimesh = SubResource("MultiMesh_1yaxr")
@@ -447,30 +449,6 @@ environment = ExtResource("18_sf6ei")
 multimesh = SubResource("MultiMesh_wbqnx")
 
 [node name="tree" type="Node3D" parent="."]
-
-[node name="Stylized_Tree" parent="tree" instance=ExtResource("8_ke1wa")]
-transform = Transform3D(1.345, 0, 0, 0, 1.345, 0, 0, 0, 1.345, 0, 0, 5.7105)
-
-[node name="Stylized_Tree2" parent="tree" instance=ExtResource("8_ke1wa")]
-transform = Transform3D(1.345, 0, 0, 0, 1.345, 0, 0, 0, 1.345, 11.2285, 0, 12.9291)
-
-[node name="Stylized_Tree3" parent="tree" instance=ExtResource("8_ke1wa")]
-transform = Transform3D(1.345, 0, 0, 0, 1.345, 0, 0, 0, 1.345, 8.14735, 0, 7.90712)
-
-[node name="Stylized_Tree4" parent="tree" instance=ExtResource("8_ke1wa")]
-transform = Transform3D(1.345, 0, 0, 0, 1.345, 0, 0, 0, 1.345, 10.8015, 0, 5.8606)
-
-[node name="Stylized_Tree5" parent="tree" instance=ExtResource("8_ke1wa")]
-transform = Transform3D(1.345, 0, 0, 0, 1.345, 0, 0, 0, 1.345, -0.96114, 0, 12.4402)
-
-[node name="Stylized_Tree7" parent="tree" instance=ExtResource("8_ke1wa")]
-transform = Transform3D(1.345, 0, 0, 0, 1.345, 0, 0, 0, 1.345, -5.83991, 0, 9.5561)
-
-[node name="Stylized_Tree8" parent="tree" instance=ExtResource("8_ke1wa")]
-transform = Transform3D(1.345, 0, 0, 0, 1.345, 0, 0, 0, 1.345, 20.3437, 0, 22.3353)
-
-[node name="Stylized_Tree6" parent="tree" instance=ExtResource("8_ke1wa")]
-transform = Transform3D(1.345, 0, 0, 0, 1.345, 0, 0, 0, 1.345, -3.73252, 0, 4.01787)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.999035, 0, 0.0439158, 0, 1, 0, -0.0439158, 0, -0.999035, 4.75473, 1.2714, -1.95131)
