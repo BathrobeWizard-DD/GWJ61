@@ -48,6 +48,11 @@ move_jump={
 ]
 }
 
+[physics]
+
+3d/default_linear_damp=2.0
+3d/default_angular_damp=2.0
+
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"

@@ -1,9 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cwemfdrxpmx88"]
 
-[ext_resource type="Script" path="res://Game/Entities/Player/Player.gd" id="1_i818j"]
-[ext_resource type="SpriteFrames" uid="uid://vop5cy84ooo3" path="res://Game/Entities/Player/Player_Animated_Sprites.tres" id="2_vc2yv"]
-[ext_resource type="PackedScene" uid="uid://rwrf21j58qvf" path="res://Game/Assets/3D Art/Swing_VFX.tscn" id="3_txccc"]
-[ext_resource type="Texture2D" uid="uid://c32pkwr0qdu4n" path="res://Game/Assets/2D Art/Textures/Swing_VFX.png" id="4_l3cj7"]
+[ext_resource type="Script" path="res://Game/Entities/Player/PlayerController.gd" id="1_7tj2a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qye2w"]
 size = Vector3(1.06043, 1.20549, 0.570159)
@@ -80,15 +77,16 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1.18, 0, 0, 0, 1.18, 0, 0, 0, 1.18, 0, 0, 0)
-script = ExtResource("1_i818j")
+axis_lock_linear_z = true
+script = ExtResource("1_7tj2a")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.483155, 0)
 shape = SubResource("BoxShape3D_qye2w")
 
-[node name="Sprite" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(0.29, 0, 0, 0, 0.29, 0, 0, 0, 0.29, -0.0589943, 0.172733, 0)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite(Placeholder)" type="Sprite3D" parent="."]
 offset = Vector2(0, 128)
 shaded = true
 alpha_cut = 2
