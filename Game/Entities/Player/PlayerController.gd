@@ -13,6 +13,7 @@ var action: Player.Action = Player.Action.NONE
 
 var input_handlers: Array[PlayerEffect] = [
 	PlayerJump.new(),
+	PlayerSlide.new(),
 ]
 
 var physics_handlers: Array[PlayerEffect] = [
