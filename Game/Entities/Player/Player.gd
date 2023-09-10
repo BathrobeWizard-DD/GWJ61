@@ -15,7 +15,7 @@ enum Movement {
 	CROUCHING = 128,
 	SLIDING = 256,
 	JUMPING = 512,
-	BIT_11 = 1024,
+	CLIMBING = 1024,
 	BIT_12 = 2048,
 }
 
@@ -29,6 +29,7 @@ enum Action {
 }
 
 const JUMP_VELOCITY = 10.0
-const FRICTION = 0.3
-const DRAG = 0.5
+const FRICTION = 0.33
+const DRAG = 0.33
 const SPEED = 8.0
+const SLIDE_ENERGY = 120.0

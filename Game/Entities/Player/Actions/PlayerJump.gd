@@ -9,7 +9,7 @@ func is_enabled(player: PlayerController) -> bool:
 func handle(_player: PlayerController, event: InputEvent) -> PlayerEffect:
 	velocity.y = 0.0
 
-	if not event.pressed or event.echo:
+	if not (event is InputEventKey) or not event.pressed or event.echo:
 		return null
 
 	if event.is_action_pressed("move_jump"):
