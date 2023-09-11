@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2qvaacfkghx7"
-path="res://.godot/imported/Base Enemy Sprite_Sheet_Template.png-332c4e4049e80c5ce1530f23fa910f27.ctex"
+uid="uid://roovulo6uf5k"
+path="res://.godot/imported/Cat enemy_Sheet.png-d3019adcc49c83318b6f5b1261c62f15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Assets/2D Art/Characters/Enemies/Base Enemy Sprite_Sheet_Template.png"
-dest_files=["res://.godot/imported/Base Enemy Sprite_Sheet_Template.png-332c4e4049e80c5ce1530f23fa910f27.ctex"]
+source_file="res://Game/Assets/2D Art/Characters/Enemies/Cat enemy_Sheet.png"
+dest_files=["res://.godot/imported/Cat enemy_Sheet.png-d3019adcc49c83318b6f5b1261c62f15.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c00lhkdnrsvl4"
-path="res://.godot/imported/Skeleton_Enemy_Sheet.png-44ffcb94baef494cece37807bae199cd.ctex"
+path="res://.godot/imported/Skeleton_Enemy_Sheet.png-f57f796289a1fe0df2a453ee84523f29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Assets/2D Art/Characters/Player/Skeleton_Enemy_Sheet.png"
-dest_files=["res://.godot/imported/Skeleton_Enemy_Sheet.png-44ffcb94baef494cece37807bae199cd.ctex"]
+source_file="res://Game/Assets/2D Art/Characters/Enemies/Skeleton_Enemy_Sheet.png"
+dest_files=["res://.godot/imported/Skeleton_Enemy_Sheet.png-f57f796289a1fe0df2a453ee84523f29.ctex"]
 
 [params]
 
