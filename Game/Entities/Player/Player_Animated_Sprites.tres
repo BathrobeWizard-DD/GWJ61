@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=26 format=3 uid="uid://vop5cy84ooo3"]
+[gd_resource type="SpriteFrames" load_steps=32 format=3 uid="uid://vop5cy84ooo3"]
 
 [ext_resource type="Texture2D" uid="uid://bghorf2sr8gy3" path="res://Game/Assets/2D Art/Characters/Player/Rough_Sprite_Sheet.png" id="1_p0ubf"]
 
@@ -98,6 +98,30 @@ region = Rect2(2048, 512, 512, 512)
 atlas = ExtResource("1_p0ubf")
 region = Rect2(2560, 512, 512, 512)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eeig"]
+atlas = ExtResource("1_p0ubf")
+region = Rect2(0, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_760cq"]
+atlas = ExtResource("1_p0ubf")
+region = Rect2(512, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e5kv"]
+atlas = ExtResource("1_p0ubf")
+region = Rect2(1024, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6d12"]
+atlas = ExtResource("1_p0ubf")
+region = Rect2(1536, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2c3j"]
+atlas = ExtResource("1_p0ubf")
+region = Rect2(2048, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auivj"]
+atlas = ExtResource("1_p0ubf")
+region = Rect2(2560, 2560, 512, 512)
+
 [resource]
 animations = [{
 "frames": [{
@@ -190,5 +214,28 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eeig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_760cq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e5kv")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_j6d12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2c3j")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_auivj")
+}],
+"loop": true,
+"name": &"Torch_Attack_Idle",
 "speed": 12.0
 }]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cwin37nws0f26"
+path="res://.godot/imported/Swing_VFX.obj-8c731349f599f249defe06f42d2a8c36.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Swing_VFX.obj-8c731349f599f249defe06f42d2a8c36.mesh"]
+
+source_file="res://Game/Assets/3D Art/Swing_VFX.obj"
+dest_files=["res://.godot/imported/Swing_VFX.obj-8c731349f599f249defe06f42d2a8c36.mesh", "res://.godot/imported/Swing_VFX.obj-8c731349f599f249defe06f42d2a8c36.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
