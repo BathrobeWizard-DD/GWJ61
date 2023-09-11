@@ -33,3 +33,5 @@ const FRICTION = 0.33
 const DRAG = 0.33
 const SPEED = 8.0
 const SLIDE_ENERGY = 120.0
+const TOK_KICK = 0.2
+const TOK_SERVE = 1.2

@@ -7,7 +7,7 @@ func is_enabled(player: PlayerController) -> bool:
 
 
 func handle(player: PlayerController, _delta: float) -> PlayerEffect:
-	movement = Player.Movement.IDLE
+	movement = null
 	velocity = Vector3.ZERO
 
 	var input_dir = Input.get_axis("move_left", "move_right")
@@ -15,7 +15,10 @@ func handle(player: PlayerController, _delta: float) -> PlayerEffect:
 	velocity.x = direction.x * Player.SPEED
 
 	# TODO: Handle fine-grained input value to determine if player is running
-	if abs(velocity.x) > 0.0:
+	if player.movement == Player.Movement.IDLE and abs(input_dir) > 0.1:
 		movement = Player.Movement.RUNNING
+
+	if abs(velocity.x) <= 1.0 and player.is_on_floor():
+		movement = Player.Movement.IDLE
 
 	return self
