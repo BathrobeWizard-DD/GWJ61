@@ -1,0 +1,12 @@
+newmtl mossybark05
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+map_Kd mossybark05.png
+
+newmtl bark07
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+map_Kd bark07.png
+
