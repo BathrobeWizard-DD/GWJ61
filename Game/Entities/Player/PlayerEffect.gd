@@ -7,10 +7,9 @@ extends Node
 
 var velocity: Vector3 = Vector3.ZERO
 
-var animation: String
-var condition: Player.Condition
-var movement: Player.Movement
-var action: Player.Action
+var condition
+var movement
+var action
 
 
 ## Checks the overall state of the player and returns whether this

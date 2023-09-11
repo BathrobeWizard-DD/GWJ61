@@ -3,8 +3,8 @@ extends CharacterBody3D
 
 signal state_changed(state: int)
 signal animation_changed(animation: String)
-signal collides(area: Area2D)
-signal interact(area: Area2D)
+signal collides(node: PhysicsBody3D)
+signal interact(node: PhysicsBody3D)
 
 var state: int = 0x000000000000000000
 var condition: Player.Condition = Player.Condition.ALIVE
@@ -23,7 +23,18 @@ var physics_handlers: Array[PlayerEffect] = [
 	WorldGravity.new(),
 ]
 
+var interaction_handlers: Array[PlayerEffect] = [
+# TODO
+]
+
+var collision_handlers: Array[PlayerEffect] = [
+# TODO
+]
+
+@onready var rig: Node3D = $Shape
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var interaction_zone: Area3D = $Shape/InteractionZone
+@onready var collision_zone: Area3D = $Shape/CollisionZone
 
 # region: State machine
 
@@ -45,11 +56,6 @@ func apply_effect(handler: PlayerEffect, event) -> void:
 	state = condition | movement | action
 	state_changed.emit(state)
 
-	# Apply animation
-	if "%s" % effect.animation != "" and effect.animation != animation_player.animation:
-		animation_player.play(effect.animation)
-		animation_changed.emit(effect.animation)
-
 	# Apply movement
 	self.velocity += effect.velocity
 
@@ -57,6 +63,16 @@ func apply_effect(handler: PlayerEffect, event) -> void:
 # endregion
 
 # region: Lifecycle
+
+
+func _ready() -> void:
+	interaction_zone.body_entered.connect(func(body): _on_interaction(body))
+	collision_zone.body_entered.connect(func(body): _on_collision(body))
+	Context.player = self
+
+
+func _enter_tree() -> void:
+	Context.player = self
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -67,6 +83,22 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	for handler in physics_handlers:
 		apply_effect(handler, delta)
+
+	var direction = velocity.normalized()
+	rig.rotation_degrees.y = 180.0 if direction.x < 0.0 else 0.0
+
 	move_and_slide()
+
+
+func _on_collision(body: Node3D) -> void:
+	collides.emit(body)
+	for handler in collision_handlers:
+		apply_effect(handler, body)
+
+
+func _on_interaction(body: Node3D) -> void:
+	interact.emit(body)
+	for handler in interaction_handlers:
+		apply_effect(handler, body)
 
 # endregion
