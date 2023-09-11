@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://vop5cy84ooo3" path="res://Game/Entities/Player/Player_Animated_Sprites.tres" id="2_vc2yv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qye2w"]
-size = Vector3(2.20383, 3.87053, 1)
+size = Vector3(1.06043, 1.20549, 0.570159)
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1.18, 0, 0, 0, 1.18, 0, 0, 0, 1.18, 0, 0, 0)
