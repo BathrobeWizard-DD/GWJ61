@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b3krwqsnv4ny" path="res://Game/Assets/Textures/Spike_Normal_DirectX.png" id="2_3swor"]
 
 [resource]
+diffuse_mode = 3
 albedo_color = Color(0.92549, 0.698039, 0.447059, 1)
 albedo_texture = ExtResource("1_88skj")
 metallic_specular = 0.0

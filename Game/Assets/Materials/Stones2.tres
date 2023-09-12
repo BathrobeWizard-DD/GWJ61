@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c1yjgu57bkr4q" path="res://Game/Assets/2D Art/Textures/Stone_Brick_Normal.png" id="2_l3qmq"]
 
 [resource]
+diffuse_mode = 3
 albedo_texture = ExtResource("1_oxro4")
 metallic_specular = 0.0
 normal_enabled = true

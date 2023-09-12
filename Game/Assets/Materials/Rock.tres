@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bc5wguxv6b63q" path="res://Game/Assets/Textures/Rock_Normal_DirectX.png" id="2_8o8d0"]
 
 [resource]
+diffuse_mode = 3
 albedo_texture = ExtResource("1_euutu")
 metallic_specular = 0.0
 normal_enabled = true

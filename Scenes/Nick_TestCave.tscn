@@ -1,0 +1,192 @@
+[gd_scene load_steps=12 format=3 uid="uid://bnoyd75or5oc0"]
+
+[ext_resource type="Texture2D" uid="uid://diu2ri4c3ay6a" path="res://Game/Assets/2D Art/Characters/Player/Static character test.png" id="1_gjfjl"]
+[ext_resource type="Material" uid="uid://cy55haau0re4u" path="res://Game/Assets/Materials/Rock.tres" id="2_jpj0m"]
+[ext_resource type="PackedScene" uid="uid://4sv2bgkpedfa" path="res://Game/Assets/Objects/Rock.tscn" id="2_lsc4x"]
+[ext_resource type="PackedScene" uid="uid://c8xyvbpwjk7q7" path="res://Game/Assets/Objects/Pyramid.tscn" id="3_hqwa1"]
+[ext_resource type="PackedScene" uid="uid://gyf1t1mugrha" path="res://Game/Assets/Objects/Stalagmite_A.tscn" id="4_dus8h"]
+[ext_resource type="PackedScene" uid="uid://bjt8ddmiyotrs" path="res://Game/Assets/Objects/Stalagmite_B.tscn" id="5_vcamk"]
+[ext_resource type="PackedScene" uid="uid://ccfb8c2eqnq4c" path="res://Game/Assets/Objects/Stalagmite_C.tscn" id="6_nn1pc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4y15t"]
+albedo_color = Color(0.360784, 0.2, 0.184314, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_okl0a"]
+material = SubResource("StandardMaterial3D_4y15t")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_t6lae"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 8.66
+dof_blur_near_enabled = true
+
+[sub_resource type="Environment" id="Environment_6hesp"]
+background_mode = 1
+background_color = Color(0.262745, 0.678431, 0.760784, 1)
+background_energy_multiplier = 0.63
+ambient_light_color = Color(0.152941, 0.305882, 0.286275, 1)
+fog_enabled = true
+fog_light_color = Color(0.317647, 0.576471, 0.611765, 1)
+fog_sun_scatter = 0.01
+fog_sky_affect = 0.663
+fog_height = 0.36
+fog_height_density = 0.6707
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.48789, 2.47487)
+shaded = true
+alpha_cut = 3
+texture = ExtResource("1_gjfjl")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.61777, 0, 0, 0, 1.54194, 0, 0, 0, 1, -6.98534, 0.32217, -2.48182)
+mesh = SubResource("BoxMesh_okl0a")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.233345, 0, 0, 0, 1.60345, 0, 0, 0, -0.022537, 1.6251, 0.32217, 0)
+mesh = SubResource("BoxMesh_okl0a")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.233345, 0, 0, 0, 1.60345, 0, 0, 0, -0.022537, 5.54555, 0.32217, -2.38458)
+mesh = SubResource("BoxMesh_okl0a")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, -6.06499, 0.32217, -5.3236)
+mesh = SubResource("BoxMesh_okl0a")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, 2.39904, 10.5123, -8.10365)
+mesh = SubResource("BoxMesh_okl0a")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, 9.05836, 10.5123, -10.6376)
+mesh = SubResource("BoxMesh_okl0a")
+
+[node name="rrr" type="MeshInstance3D" parent="."]
+transform = Transform3D(109.321, 0, 0, 0, -0.0546056, 0, 0, 0, 174.986, 0, -1.24516, 0)
+mesh = SubResource("BoxMesh_okl0a")
+
+[node name="rrr2" type="MeshInstance3D" parent="."]
+transform = Transform3D(94.6116, 0, 0, 0, -0.0546056, 0, 0, 0, 194.236, 0.0417471, 10.6539, -0.000318527)
+material_override = ExtResource("2_jpj0m")
+mesh = SubResource("BoxMesh_okl0a")
+
+[node name="rrr3" type="MeshInstance3D" parent="."]
+transform = Transform3D(239.11, 0, 0, 0, 0.00967827, -48.0631, 0, -0.0537411, -8.65571, 0.0417471, 10.6539, -73.9701)
+mesh = SubResource("BoxMesh_okl0a")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999779, 0, -0.0210121, 0, 1, 0, 0.0210121, 0, 0.999779, 0.255627, 1.1501, 4.87121)
+attributes = SubResource("CameraAttributesPractical_t6lae")
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6hesp")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.750613, 7.44743, -7.94323)
+light_color = Color(0.12549, 0.552941, 0.501961, 1)
+light_energy = 12.276
+shadow_enabled = true
+omni_range = 15.9405
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.07611, 0.997099, 0, -0.997099, 0.07611, -0.115087, 4.19543, 2.36732)
+light_color = Color(0.305882, 0.627451, 0.670588, 1)
+light_energy = 7.553
+light_indirect_energy = 4.657
+spot_range = 6.19283
+
+[node name="Rock" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(-2.43592, 0, 0.257014, 0, 2.44944, 0, -0.257014, 0, -2.43592, -3.43593, 0, -0.891679)
+
+[node name="Rock10" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(-1.62174, -0.961442, 0.124508, -0.233007, 6.7054, 0.0115956, -0.124892, -0.025607, -1.63838, -2.58339, -1.21472, -22.7837)
+
+[node name="Rock14" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(1.18994, 2.44483, 1.87989, -0.259325, 9.16809, -0.537393, -1.95407, 0.272083, 1.21608, -9.40807, -0.696596, -22.9719)
+
+[node name="Rock15" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(1.38174, 0.811186, 0.870648, -0.152423, 7.3277, -0.097234, -0.87606, 0.00449236, 1.39012, 2.14895, -0.321784, -23.0383)
+
+[node name="Rock11" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(-12.24, 6.61407, 15.3786, -1.27133, 30.3397, -7.27514, -13.4076, -8.91493, -13.3495, -22.7611, -4.25816, -21.5325)
+
+[node name="Rock12" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(-15.8754, -6.43642, 5.15435, -7.58054, 15.7924, -3.62756, -3.24503, -5.40335, -16.7421, -16.8809, 12.9029, -14.685)
+
+[node name="Rock13" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(-45.5959, 0.300974, 1.96551, 1.60028, 9.05916, 0.107862, -6.64323, 0.116509, -13.4643, 14.494, 10.8945, -26.9822)
+
+[node name="Rock5" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(-0.366752, 0, 0.0386961, 0, 0.368788, 0, -0.0386961, 0, -0.366752, 1.182, 0.133723, -0.337958)
+
+[node name="Rock6" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(0.368375, 0, 0.0174366, 0, 0.368788, 0, -0.0174366, 0, 0.368375, 2.36781, 0.139844, 0.771622)
+
+[node name="Rock7" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(0.579954, 0, 0.0274514, 0, 0.580603, 0, -0.0274514, 0, 0.579954, 1.44532, 0.103855, 0.251896)
+
+[node name="Rock3" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(-7.83962, 0, 0.82716, 0, 7.88313, 0, -0.82716, 0, -7.83962, -7.77845, 1.8354, 2.36283)
+
+[node name="Rock4" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(-18.1719, -1.89954, 4.60191, -3.52077, 17.2169, -6.79607, -3.51994, -7.41445, -16.96, 3.01904, -7.11698, -1.56182)
+
+[node name="Rock8" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(4.06574, 0.270125, 23.8414, -1.01183, 4.97916, -1.12184, -21.2653, -0.185269, 4.61164, 18.8977, -1.94632, -1.77487)
+
+[node name="Rock2" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(3.59365, 0.893321, 0.0737284, -0.892963, 3.5944, -0.0264632, -0.0779343, 0.00790087, 3.70292, 3.57648, 0.772424, -3.11978)
+
+[node name="Rock9" parent="." instance=ExtResource("2_lsc4x")]
+transform = Transform3D(19.5448, -2.82239, -2.59192, 3.71431, 10.6408, 16.4213, -0.942273, -16.5979, 10.9684, 17.2465, 0.476558, -11.0869)
+
+[node name="Pyramid" parent="." instance=ExtResource("3_hqwa1")]
+transform = Transform3D(5.23606, 0, 0, 0, 5.23606, 0, 0, 0, 5.23606, 0.0393486, 0.398922, -44.1623)
+
+[node name="Stalagmite_A" parent="." instance=ExtResource("4_dus8h")]
+transform = Transform3D(0.468331, 0, 0, 0, 0.32446, 0, 0, 0, 0.468331, 1.57669, 0, 0.0477123)
+
+[node name="Stalagmite_A3" parent="." instance=ExtResource("4_dus8h")]
+transform = Transform3D(-0.669291, 0.0480679, 0.367215, 0.137325, 0.39008, 0.0508061, -0.369269, 0.0579423, -0.646673, 0.698651, -0.025296, -4.8449)
+
+[node name="Stalagmite_A4" parent="." instance=ExtResource("4_dus8h")]
+transform = Transform3D(-1.57357, -0.0860455, 0.605452, -0.0794755, 0.861033, 0.240502, -0.648016, 0.103343, -1.49971, -5.7246, -0.631287, -5.28338)
+
+[node name="Stalagmite_A2" parent="." instance=ExtResource("4_dus8h")]
+transform = Transform3D(-0.211784, 0.0245228, -0.152165, 0.0155292, 0.205108, 0.0309043, 0.158727, 0.012653, -0.206052, 1.83663, -0.168991, -0.00597)
+
+[node name="Stalagmite_B" parent="." instance=ExtResource("5_vcamk")]
+transform = Transform3D(-2.45298, 0.100425, -0.0493122, -0.0909485, -2.60795, -0.162095, -0.0545227, -0.167855, 2.48895, 3.96336, 10.3976, -9.71733)
+
+[node name="Stalagmite_B3" parent="." instance=ExtResource("5_vcamk")]
+transform = Transform3D(-10.8322, 0.308977, -0.214126, -0.401622, -8.02384, -0.703859, -0.240769, -0.516438, 10.8077, 28.2139, 11.5516, -53.1029)
+
+[node name="Stalagmite_B4" parent="." instance=ExtResource("5_vcamk")]
+transform = Transform3D(7.21974, -0.333081, -1.68207, 0.441636, 5.5017, -0.0823607, 1.68546, -0.0148256, 7.22678, -9.51106, -3.03296, -60.1638)
+
+[node name="Stalagmite_B5" parent="." instance=ExtResource("5_vcamk")]
+transform = Transform3D(-2.98137, 0.0819617, 0.292406, 0.178411, 1.35788, -0.0342449, -0.285836, -0.00733712, -3.07127, -15.0134, -3.34669, -39.3605)
+
+[node name="Stalagmite_B6" parent="." instance=ExtResource("5_vcamk")]
+transform = Transform3D(-1.09764, -0.161088, 1.36432, 0.089835, 1.28286, 0.346682, -1.37975, 0.211677, -1.06278, 22.9371, -3.71561, -54.3314)
+
+[node name="Stalagmite_B7" parent="." instance=ExtResource("5_vcamk")]
+transform = Transform3D(1.3521, -0.0747342, -1.12961, -0.350261, -1.26876, -0.266364, -1.0797, 0.318006, -1.32819, 15.7793, 10.6409, -55.7016)
+
+[node name="Stalagmite_B8" parent="." instance=ExtResource("5_vcamk")]
+transform = Transform3D(1.38085, -0.0606365, -1.09592, -0.139639, -1.30562, -0.0447001, -1.09104, 0.090359, -1.38131, -7.24834, 11.407, -16.6983)
+
+[node name="Stalagmite_B9" parent="." instance=ExtResource("5_vcamk")]
+transform = Transform3D(-0.729464, 0.0111378, 1.59527, -0.137861, -1.0962, -0.0445178, 1.5769, -0.0906834, 0.73407, 4.88673, 11.1004, -33.0177)
+
+[node name="Stalagmite_C" parent="." instance=ExtResource("6_nn1pc")]
+transform = Transform3D(0.977246, 0, 0, 0, -0.977007, -0.0215913, 0, 0.0215913, -0.977007, -3.65527, 8.78936, 0.624968)
+
+[node name="Stalagmite_C2" parent="." instance=ExtResource("6_nn1pc")]
+transform = Transform3D(1.16719, -0.123127, -0.00710819, -0.123193, -1.16715, -0.0116087, -0.00585076, 0.0122905, -1.17361, 2.56126, 10.6675, -7.63529)
+
+[node name="Stalagmite_B2" parent="." instance=ExtResource("5_vcamk")]
+transform = Transform3D(-0.716316, 0.0577028, 0.0562701, -0.058483, -0.718418, -0.00777623, 0.0554588, -0.0122929, 0.718594, 1.58343, 6.83921, -0.14572)

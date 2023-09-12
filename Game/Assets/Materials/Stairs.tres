@@ -3,5 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d2x7ljmpsmdtx" path="res://Game/Assets/2D Art/Textures/Stairs.png" id="1_y1o5o"]
 
 [resource]
+diffuse_mode = 3
+albedo_color = Color(0.768627, 0.768627, 0.768627, 1)
 albedo_texture = ExtResource("1_y1o5o")
 metallic_specular = 0.0
