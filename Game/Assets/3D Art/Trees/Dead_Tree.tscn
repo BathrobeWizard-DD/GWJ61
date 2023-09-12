@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://2senjtpxnpu7"]
+
+[ext_resource type="ArrayMesh" uid="uid://bxf1yykem558d" path="res://Game/Assets/3D Art/Trees/Dead_Tree.obj" id="1_jj2m3"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DeadTree" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, 0.188325, 0, 3.58149)
+mesh = ExtResource("1_jj2m3")

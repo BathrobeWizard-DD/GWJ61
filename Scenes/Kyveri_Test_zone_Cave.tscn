@@ -1,6 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c67vb8ile0dno"]
+[gd_scene load_steps=13 format=3 uid="uid://c67vb8ile0dno"]
 
 [ext_resource type="Texture2D" uid="uid://diu2ri4c3ay6a" path="res://Game/Assets/2D Art/Characters/Player/Static character test.png" id="1_da5ge"]
+[ext_resource type="PackedScene" uid="uid://c44vle0mtdywp" path="res://Game/Assets/3D Art/stylized_rock_1.tscn" id="2_1i4o2"]
+[ext_resource type="Environment" uid="uid://da1tx2rhmb6mb" path="res://Game/Assets/Shaders/Cave_World_Env.tres" id="2_ptjki"]
+[ext_resource type="PackedScene" uid="uid://gyf1t1mugrha" path="res://Game/Assets/Objects/Stalagmite_A.tscn" id="3_8ov5y"]
+[ext_resource type="PackedScene" uid="uid://bjt8ddmiyotrs" path="res://Game/Assets/Objects/Stalagmite_B.tscn" id="4_ks8p1"]
+[ext_resource type="PackedScene" uid="uid://c8xyvbpwjk7q7" path="res://Game/Assets/Objects/Pyramid.tscn" id="5_n08fn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4y15t"]
 albedo_color = Color(0.360784, 0.2, 0.184314, 1)
@@ -13,17 +18,24 @@ dof_blur_far_enabled = true
 dof_blur_far_distance = 8.66
 dof_blur_near_enabled = true
 
-[sub_resource type="Environment" id="Environment_6hesp"]
-background_mode = 1
-background_color = Color(0.262745, 0.678431, 0.760784, 1)
-background_energy_multiplier = 0.63
-ambient_light_color = Color(0.152941, 0.305882, 0.286275, 1)
-fog_enabled = true
-fog_light_color = Color(0.317647, 0.576471, 0.611765, 1)
-fog_sun_scatter = 0.01
-fog_sky_affect = 0.663
-fog_height = 0.36
-fog_height_density = 0.6707
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ys0f5"]
+emission_shape = 1
+emission_sphere_radius = 19.7
+gravity = Vector3(0, 2, 0)
+scale_min = 0.2
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wcf7e"]
+emission_enabled = true
+emission = Color(0.0862745, 0.313726, 0.956863, 1)
+emission_energy_multiplier = 7.02
+proximity_fade_enabled = true
+distance_fade_mode = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_dvmsv"]
+material = SubResource("StandardMaterial3D_wcf7e")
+radius = 0.035
+height = 0.115
 
 [node name="Node3D" type="Node3D"]
 
@@ -32,54 +44,6 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.48789, 2.47487)
 shaded = true
 alpha_cut = 3
 texture = ExtResource("1_da5ge")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32217, 0)
-mesh = SubResource("BoxMesh_okl0a")
-
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.61777, 0, 0, 0, 1.54194, 0, 0, 0, 1, -6.98534, 0.32217, -2.48182)
-mesh = SubResource("BoxMesh_okl0a")
-
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
-transform = Transform3D(4.67631, 0, 0, 0, 2.71064, 0, 0, 0, 3.60427, 7.52974, -0.474935, -7.13681)
-mesh = SubResource("BoxMesh_okl0a")
-
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.32088, 1.90843, 0, -3.29237, 1.92496, 0, 0, 0, 3.60427, 7.52974, 1.30333, -14.3719)
-mesh = SubResource("BoxMesh_okl0a")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.233345, 0, 0, 0, 1.60345, 0, 0, 0, -0.022537, 1.6251, 0.32217, 0)
-mesh = SubResource("BoxMesh_okl0a")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.233345, 0, 0, 0, 1.60345, 0, 0, 0, -0.022537, 5.54555, 0.32217, -2.38458)
-mesh = SubResource("BoxMesh_okl0a")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, 0.882599, 0.32217, -5.3236)
-mesh = SubResource("BoxMesh_okl0a")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, -6.06499, 0.32217, -5.3236)
-mesh = SubResource("BoxMesh_okl0a")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, -6.06499, 10.5123, -9.59702)
-mesh = SubResource("BoxMesh_okl0a")
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, -1.71743, 10.5123, -9.59702)
-mesh = SubResource("BoxMesh_okl0a")
-
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, 2.39904, 10.5123, -8.10365)
-mesh = SubResource("BoxMesh_okl0a")
-
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, 9.05836, 10.5123, -10.6376)
-mesh = SubResource("BoxMesh_okl0a")
 
 [node name="rrr" type="MeshInstance3D" parent="."]
 transform = Transform3D(31.44, 0, 0, 0, -0.0546056, 0, 0, 0, 48.8363, 0, 0, 0)
@@ -90,7 +54,7 @@ transform = Transform3D(31.44, 0, 0, 0, -0.0546056, 0, 0, 0, 48.8363, 0.0417471,
 mesh = SubResource("BoxMesh_okl0a")
 
 [node name="rrr3" type="MeshInstance3D" parent="."]
-transform = Transform3D(31.44, 0, 0, 0, 0.00967827, -48.0631, 0, -0.0537411, -8.65571, 0.0417471, 10.6539, -18.4725)
+transform = Transform3D(31.44, 0, 0, 0, 0.00967827, -48.0631, 0, -0.0537411, -8.65571, 0.157742, 9.53894, -18.1779)
 mesh = SubResource("BoxMesh_okl0a")
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -99,7 +63,7 @@ attributes = SubResource("CameraAttributesPractical_t6lae")
 current = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_6hesp")
+environment = ExtResource("2_ptjki")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.750613, 7.44743, -7.94323)
@@ -114,3 +78,142 @@ light_color = Color(0.92549, 0.568627, 0.835294, 1)
 light_energy = 7.553
 light_indirect_energy = 4.657
 spot_range = 6.19283
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.557933, -0.829886, 0, 0.829886, 0.557933, 0, 0, 0, 1, -1.5466, 0.522217, -1.90107)
+mesh = SubResource("BoxMesh_okl0a")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1.61777, 0, 0, 0, 1.54194, 0, 0, 0, 1, -6.98534, 0.32217, -2.48182)
+mesh = SubResource("BoxMesh_okl0a")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(4.67631, 0, 0, 0, 2.71064, 0, 0, 0, 3.60427, 7.52974, -0.474935, -7.13681)
+mesh = SubResource("BoxMesh_okl0a")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(3.32088, 1.90843, 0, -3.29237, 1.92496, 0, 0, 0, 3.60427, 7.52974, 1.30333, -14.3719)
+mesh = SubResource("BoxMesh_okl0a")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.233345, 0, 0, 0, 1.60345, 0, 0, 0, -0.022537, 1.6251, 0.32217, 0)
+mesh = SubResource("BoxMesh_okl0a")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.233345, 0, 0, 0, 1.60345, 0, 0, 0, -0.022537, 5.54555, 0.32217, -2.38458)
+mesh = SubResource("BoxMesh_okl0a")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, 0.882599, 0.32217, -5.3236)
+mesh = SubResource("BoxMesh_okl0a")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, -6.06499, 0.32217, -5.3236)
+mesh = SubResource("BoxMesh_okl0a")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, -6.06499, 10.5123, -9.59702)
+mesh = SubResource("BoxMesh_okl0a")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, -1.71743, 10.5123, -9.59702)
+mesh = SubResource("BoxMesh_okl0a")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, 2.39904, 10.5123, -8.10365)
+mesh = SubResource("BoxMesh_okl0a")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.509032, 0, 0, 0, 3.35192, 0, 0, 0, -0.357665, 9.05836, 10.5123, -10.6376)
+mesh = SubResource("BoxMesh_okl0a")
+skeleton = NodePath("../..")
+
+[node name="Stylized_rock_1" parent="." instance=ExtResource("2_1i4o2")]
+transform = Transform3D(0.803701, -0.595033, 0, 0.555388, 0.750154, 0.358906, -0.213561, -0.288453, 0.933374, -3.73214, 1.18785, -1.48018)
+
+[node name="Stylized_rock_7" parent="." instance=ExtResource("2_1i4o2")]
+transform = Transform3D(0.461684, -0.782507, 0, 0.319041, 0.986501, 0.358906, -0.122679, -0.379334, 0.933374, 4.21607, 1.14448, -6.57446)
+
+[node name="Stylized_rock_8" parent="." instance=ExtResource("2_1i4o2")]
+transform = Transform3D(0.156147, -0.344196, 1.4758, 0.0845581, 0.947526, 0.517587, -0.642209, 0.0410704, 0.426977, 3.91199, -0.508894, -6.0766)
+
+[node name="Stylized_rock_9" parent="." instance=ExtResource("2_1i4o2")]
+transform = Transform3D(0.259414, -0.51072, 2.21746, -0.106924, 0.742436, 1.65864, -0.923088, -0.229525, 0.431044, -4.21257, 3.05312, 0.611789)
+
+[node name="Stylized_rock_2" parent="." instance=ExtResource("2_1i4o2")]
+transform = Transform3D(0.184076, -0.741903, 0.309644, 0.266183, 0.585933, 0.352089, -0.353287, 0.0549103, 0.426617, 2.60542, 0.000760794, -0.570452)
+
+[node name="Stylized_rock_6" parent="." instance=ExtResource("2_1i4o2")]
+transform = Transform3D(0.116973, 0.901357, 0.117588, -0.301752, 0.28512, -0.453894, -0.353287, 0.0549102, 0.426617, -2.61748, -0.286607, -0.487376)
+
+[node name="Stylized_rock_3" parent="." instance=ExtResource("2_1i4o2")]
+transform = Transform3D(-0.323752, 0.451545, -0.567205, -0.437952, -0.380352, -0.605324, -0.594533, 0.0342916, 0.754772, 5.28326, -0.110504, -3.0502)
+
+[node name="Stylized_rock_4" parent="." instance=ExtResource("2_1i4o2")]
+transform = Transform3D(0.962469, 0.0229679, -1.88576, -0.440229, -0.455279, -2.32066, -0.417425, 0.533109, -1.90062, -10.9669, 1.8459, -5.65662)
+
+[node name="Stylized_rock_5" parent="." instance=ExtResource("2_1i4o2")]
+transform = Transform3D(0.962469, 0.0229679, -1.88576, -0.1201, -0.679042, -0.805531, -0.59466, 0.174316, -2.88945, -2.44479, -0.931404, -8.5396)
+
+[node name="Stalagmite_A" parent="." instance=ExtResource("3_8ov5y")]
+transform = Transform3D(0.468331, 0, 0, 0, 0.468331, 0, 0, 0, 0.468331, 2.90352, 0, -1.69358)
+
+[node name="Stalagmite_A2" parent="." instance=ExtResource("3_8ov5y")]
+transform = Transform3D(0.468331, 0, 0, 0, 0.468331, 0, 0, 0, 0.468331, -1.92915, 0, -1.69358)
+
+[node name="Stalagmite_A3" parent="." instance=ExtResource("3_8ov5y")]
+transform = Transform3D(2.53036, 0, 0, 0, 1.91206, 0, 0, 0, 1.86715, -5.11518, 1.86095, -4.48747)
+
+[node name="Stalagmite_A4" parent="." instance=ExtResource("3_8ov5y")]
+transform = Transform3D(0.253125, 0, 2.60783, 0, 1.91206, 0, -2.61683, 0, 0.252254, 8.60379, 1.86095, -4.48747)
+
+[node name="Stalagmite_B" parent="." instance=ExtResource("4_ks8p1")]
+transform = Transform3D(0.468331, 0, 0, 0, 0.468331, 0, 0, 0, 0.468331, -1.56983, -1.66165, 1.55925)
+
+[node name="Stalagmite_B2" parent="." instance=ExtResource("4_ks8p1")]
+transform = Transform3D(0.468331, 0, 0, 0, -0.467541, 0.0271875, 0, -0.0271875, -0.467541, -1.56983, 10.7272, 1.55925)
+
+[node name="Stalagmite_B3" parent="." instance=ExtResource("4_ks8p1")]
+transform = Transform3D(0.468331, 0, 0, 0, -0.467541, 0.0271875, 0, -0.0271875, -0.467541, -0.935643, 10.7272, -7.24529)
+
+[node name="Stalagmite_B4" parent="." instance=ExtResource("4_ks8p1")]
+transform = Transform3D(0.468331, 0, 0, 0, -0.467541, 0.0271875, 0, -0.0271875, -0.467541, -3.28096, 10.7272, -7.81907)
+
+[node name="Stalagmite_B5" parent="." instance=ExtResource("4_ks8p1")]
+transform = Transform3D(0.468331, 0, 0, 0, -0.467541, 0.0271875, 0, -0.0271875, -0.467541, 5.5346, 10.7272, -7.81907)
+
+[node name="Stalagmite_B6" parent="." instance=ExtResource("4_ks8p1")]
+transform = Transform3D(0.468331, 0, 0, 0, -0.467541, 0.0271875, 0, -0.0271875, -0.467541, 6.49991, 10.7272, -4.83817)
+
+[node name="Pyramid" parent="." instance=ExtResource("5_n08fn")]
+transform = Transform3D(4.325, 0, 0, 0, 4.325, 0, 0, 0, 4.325, 0.840775, 0.771313, -15.6122)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.473256, 0)
+amount = 80
+lifetime = 3.0
+speed_scale = 0.4
+visibility_aabb = AABB(-6.41159, -2.01758, -5.01003, 12.8232, 8, 10.6958)
+process_material = SubResource("ParticleProcessMaterial_ys0f5")
+draw_pass_1 = SubResource("SphereMesh_dvmsv")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0784, 7.0366, -17.6429)
+light_color = Color(0.0352941, 0.87451, 0.929412, 1)
+light_energy = 16.0
+light_indirect_energy = 11.819
+shadow_enabled = true
+omni_range = 40.7909

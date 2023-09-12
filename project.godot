@@ -28,7 +28,7 @@ movie_writer/movie_file="C:/Users/adaliszk/Projects/godot-gwj61/Build/screencapt
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/simplegrasstextured/plugin.cfg")
 
 [input]
 
