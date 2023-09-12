@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://7e25cfibj0dc"]
+[gd_scene load_steps=19 format=3 uid="uid://7e25cfibj0dc"]
 
 [ext_resource type="MeshLibrary" uid="uid://evhx1ceapo13" path="res://Game/Assets/Sandbox.meshlib" id="1_kc7gw"]
 [ext_resource type="PackedScene" uid="uid://cwemfdrxpmx88" path="res://Game/Entities/Player/Player.tscn" id="2_mxk27"]
 [ext_resource type="PackedScene" uid="uid://gyf1t1mugrha" path="res://Game/Assets/Objects/Stalagmite_A.tscn" id="3_14oit"]
 [ext_resource type="PackedScene" uid="uid://4sv2bgkpedfa" path="res://Game/Assets/Objects/Rock.tscn" id="3_xkx8g"]
 [ext_resource type="PackedScene" uid="uid://bpj3oukg8bm4t" path="res://Game/Assets/3D Art/Pillar.tscn" id="5_h55v3"]
+[ext_resource type="AudioStream" uid="uid://bahy8pwfpqy4c" path="res://Game/Assets/SFX/Ahalto_v2.mp3" id="6_cjxnj"]
+[ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="7_tioef"]
+[ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="8_wfbwj"]
+[ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="9_ib0we"]
 
 [sub_resource type="Environment" id="Environment_cqjsy"]
 background_mode = 1
@@ -13,6 +17,7 @@ ambient_light_source = 2
 ambient_light_color = Color(0.101961, 0.423529, 0.411765, 1)
 ambient_light_energy = 1.32
 glow_enabled = true
+glow_intensity = 5.09
 fog_enabled = true
 fog_light_color = Color(0.4, 0.560784, 0.529412, 1)
 fog_density = 0.008
@@ -20,7 +25,85 @@ fog_sky_affect = 0.937
 fog_height = 2.08
 fog_height_density = 0.3262
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_uewcu"]
+dof_blur_far_enabled = true
+dof_blur_far_transition = 16.8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k66wf"]
+size = Vector3(36.1007, 3.40138, 20.668)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3taxf"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("7_tioef")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_frames = Vector2(1, 1)
+shader_parameter/light_mode = 1
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/normal_scale = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/roughness = 1.0
+shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/scale_h = 0.555
+shader_parameter/scale_w = 1.465
+shader_parameter/scale_var = -0.25
+shader_parameter/grass_strength = 1.0
+shader_parameter/optimization_by_distance = false
+shader_parameter/optimization_level = 7.0
+shader_parameter/optimization_dist_min = 10.0
+shader_parameter/optimization_dist_max = 50.0
+shader_parameter/grass_size_y = 1.0
+shader_parameter/interactive_mode = true
+shader_parameter/interactive_level_xz = 3.0
+shader_parameter/interactive_level_y = 0.3
+shader_parameter/texture_albedo = ExtResource("8_wfbwj")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_djibk"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1.00001, 1),
+"attribute_data": PackedByteArray(255, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 255, 0, 0, 0, 0, 0, 0, 128, 63, 255, 0, 0, 255, 0, 0, 128, 63, 0, 0, 0, 0, 255, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 255, 0, 0, 0, 0, 0, 0, 128, 63, 255, 0, 0, 255, 0, 0, 128, 63, 0, 0, 0, 0),
+"format": 4123,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
+"material": SubResource("ShaderMaterial_3taxf"),
+"primitive": 3,
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 255, 127)
+}]
+
+[sub_resource type="MultiMesh" id="MultiMesh_xll7a"]
+transform_format = 1
+instance_count = 96
+mesh = SubResource("ArrayMesh_djibk")
+buffer = PackedFloat32Array(-0.718188, 0, 0.69585, -5.31489, 0, 1, 0, 1.77907, -0.69585, 0, -0.718188, -3.23874, 0.500908, 0, 0.8655, -4.59701, 0, 1, 0, 1.77907, -0.8655, 0, 0.500908, -3.38156, 0.677792, 0, -0.735253, -6.53317, 0, 1, 0, 1.77907, 0.735253, 0, 0.677792, -4.16834, 0.837623, 0, 0.546249, -3.03887, 0, 1, 0, 1.77907, -0.546249, 0, 0.837623, -2.99979, 0.941187, 0, -0.337885, -3.93746, 0, 1, 0, 1.77907, 0.337885, 0, 0.941187, -3.59198, 0.179407, 0, 0.983775, -5.3516, 0, 1, 0, 1.77907, -0.983775, 0, 0.179407, -2.52713, -0.748941, 0, 0.662637, -6.05604, 0, 1, 0, 1.77907, -0.662637, 0, -0.748941, -3.81421, -0.978201, 0, -0.207662, -5.25534, 0, 1, 0, 1.77907, 0.207662, 0, -0.978201, -3.78873, -0.917554, 0, 0.397611, -4.02197, 0, 1, 0, 1.77907, -0.397611, 0, -0.917554, -3.04676, 0.84495, 0, 0.534845, -4.5367, 0, 1, 0, 1.77907, -0.534845, 0, 0.84495, -5.28519, 0.953605, 0, 0.301062, -6.34739, 0, 1, 0, 1.77907, -0.301062, 0, 0.953605, -2.99202, -0.561687, 0, -0.82735, -4.59463, 0, 1, 0, 1.77907, 0.82735, 0, -0.561687, -3.81901, -0.993786, 0, -0.11131, -5.47668, 0, 1, 0, 1.77907, 0.11131, 0, -0.993786, -2.85715, -0.238838, 0, 0.971059, -5.75872, 0, 1, 0, 1.77907, -0.971059, 0, -0.238838, -4.53425, -0.415044, 0, 0.909801, -4.90129, 0, 1, 0, 1.77907, -0.909801, 0, -0.415044, -3.25267, 0.632588, 0, 0.774488, -4.85744, 0, 1, 0, 1.77907, -0.774488, 0, 0.632588, -2.47077, -0.406009, 0, -0.913869, -3.86128, 0, 1, 0, 1.77907, 0.913869, 0, -0.406009, -2.04729, -0.194165, 0, -0.980969, -6.62704, 0, 1, 0, 1.77907, 0.980969, 0, -0.194165, -4.64922, -0.00910381, 0, -0.999959, -7.75148, 0, 1, 0, 1.77907, 0.999959, 0, -0.00910381, -1.93443, 0.61531, 0, 0.788285, -7.77734, 0, 1, 0, 1.77907, -0.788285, 0, 0.61531, -1.25476, -0.36827, 0, -0.929719, -8.66587, 0, 1, 0, 1.77907, 0.929719, 0, -0.36827, -1.41436, 0.990293, 0, -0.138992, -6.57762, 0, 1, 0, 1.77907, 0.138992, 0, 0.990293, -3.53751, 0.898049, 0, -0.439896, -7.11798, 0, 1, 0, 1.77907, 0.439896, 0, 0.898049, -3.30656, 0.999197, 0, 0.0400772, -9.33154, 0, 1, 0, 1.77907, -0.0400772, 0, 0.999197, -1.34812, -0.46327, 0, 0.886217, -7.4278, 0, 1, 0, 1.77907, -0.886217, 0, -0.46327, -1.83317, -0.31402, 0, -0.949416, -6.79485, 0, 1, 0, 1.77907, 0.949416, 0, -0.31402, -1.28412, -0.800067, 0, 0.599911, -7.41446, 0, 1, 0, 1.77907, -0.599911, 0, -0.800067, -2.12382, 0.886596, 0, -0.462545, -8.87073, 0, 1, 0, 1.77907, 0.462545, 0, 0.886596, -1.77464, 0.140295, 0, 0.99011, -8.26689, 0, 1, 0, 1.77907, -0.99011, 0, 0.140295, -4.2486, -0.859038, 0, 0.511912, -10.1306, 0, 1, 0, 1.77907, -0.511912, 0, -0.859038, -1.23499, 0.970505, 0, -0.241083, -8.52336, 0, 1, 0, 1.77907, 0.241083, 0, 0.970505, -2.11843, 0.930284, 0, -0.36684, -7.01766, 0, 1, 0, 1.77907, 0.36684, 0, 0.930284, -1.47415, 0.83475, 0, 0.550629, -8.56598, 0, 1, 0, 1.77907, -0.550629, 0, 0.83475, -3.3214, -0.869012, 0, 0.494792, -8.12818, 0, 1, 0, 1.77907, -0.494792, 0, -0.869012, -0.651224, 0.976071, 0, 0.217454, -9.24124, 0, 1, 0, 1.77907, -0.217454, 0, 0.976071, -2.33942, 0.553087, 0, -0.833123, -6.74626, 0, 1, 0, 1.77907, 0.833123, 0, 0.553087, -2.85819, 0.505594, 0, -0.862771, -8.27817, 0, 1, 0, 1.77907, 0.862771, 0, 0.505594, -0.968843, -0.992555, 0, -0.121801, -7.54312, 0, 1, 0, 1.77907, 0.121801, 0, -0.992555, -0.991065, -0.973154, 0, 0.230156, 3.82361, 0, 1, 0, 1.77907, -0.230156, 0, -0.973154, -6.0647, 0.967295, 0, -0.253654, 6.58905, 0, 1, 0, 1.77907, 0.253654, 0, 0.967295, -4.12663, 0.566379, 0, -0.824145, 5.25103, 0, 1, 0, 1.77907, 0.824145, 0, 0.566379, -5.53975, 0.484893, 0, -0.874573, 4.81518, 0, 1, 0, 1.77907, 0.874573, 0, 0.484893, -6.31222, 0.42423, 0, -0.905555, 3.87235, 0, 1, 0, 1.77907, 0.905555, 0, 0.42423, -4.46309, -0.99562, 0, 0.0934947, 6.85036, 0, 1, 0, 1.77907, -0.0934947, 0, -0.99562, -6.74333, -0.410453, 0, 0.911882, 4.87203, 0, 1, 0, 1.77907, -0.911882, 0, -0.410453, -4.19737, 0.814321, 0, -0.580414, 6.02948, 0, 1, 0, 1.77907, 0.580414, 0, 0.814321, -5.36821, 0.237273, 0, -0.971443, 7.72534, 0, 1, 0, 1.77907, 0.971443, 0, 0.237273, -5.87724, -0.585777, 0, -0.810472, 7.73889, 0, 1, 0, 1.77907, 0.810472, 0, -0.585777, -4.59495, 0.953706, 0, 0.300739, 6.37869, 0, 1, 0, 1.77907, -0.300739, 0, 0.953706, -6.02365, 0.830859, 0, 0.556483, 4.53888, 0, 1, 0, 1.77907, -0.556483, 0, 0.830859, -3.52396, -0.118832, 0, 0.992914, 6.68524, 0, 1, 0, 1.77907, -0.992914, 0, -0.118832, -3.23437, -0.998564, 0, -0.0535693, 6.20068, 0, 1, 0, 1.77907, 0.0535693, 0, -0.998564, -5.16779, 0.982115, 0, -0.188281, 6.70784, 0, 1, 0, 1.77907, 0.188281, 0, 0.982115, -6.44009, -0.675083, 0, -0.737742, 7.93119, 0, 1, 0, 1.77907, 0.737742, 0, -0.675083, -6.66389, 0.99603, 0, -0.0890184, 5.41988, 0, 1, 0, 1.77907, 0.0890184, 0, 0.99603, -6.35049, 0.999224, 0, 0.0393921, 6.04717, 0, 1, 0, 1.77907, -0.0393921, 0, 0.999224, -5.69935, 0.434801, 0, -0.900527, 8.21345, 0, 1, 0, 1.77907, 0.900527, 0, 0.434801, -5.41746, -0.954501, 0, -0.298209, 6.54067, 0, 1, 0, 1.77907, 0.298209, 0, -0.954501, -4.4129, 0.857, 0, 0.515317, 5.16115, 0, 1, 0, 1.77907, -0.515317, 0, 0.857, -4.9889, -0.877036, 0, 0.480425, 5.43476, 0, 1, 0, 1.77907, -0.480425, 0, -0.877036, -4.48869, 0.0604156, 0, 0.998173, 6.38993, 0, 1, 0, 1.77907, -0.998173, 0, 0.0604156, -1.48297, -0.951707, 0, 0.307008, 5.04385, 0, 1, 0, 1.77907, -0.307008, 0, -0.951707, -0.61159, 0.0177287, 0, 0.999843, 5.19614, 0, 1, 0, 1.77907, -0.999843, 0, 0.0177287, -0.909764, 0.999897, 0, 0.0143744, 4.83887, 0, 1, 0, 1.77907, -0.0143744, 0, 0.999897, -3.37767, -0.312425, 0, -0.949942, 5.42852, 0, 1, 0, 1.77907, 0.949942, 0, -0.312425, -0.69996, 0.997275, 0, 0.0737739, 7.73606, 0, 1, 0, 1.77907, -0.0737739, 0, 0.997275, -0.157681, -0.985246, 0, 0.171142, 6.64822, 0, 1, 0, 1.77907, -0.171142, 0, -0.985246, -1.80203, 0.991144, 0, 0.13279, 8.42587, 0, 1, 0, 1.77907, -0.13279, 0, 0.991144, -1.0035, 0.187747, 0, -0.982217, 5.41799, 0, 1, 0, 1.77907, 0.982217, 0, 0.187747, -3.56882, -0.568615, 0, 0.822604, 6.16274, 0, 1, 0, 1.77907, -0.822604, 0, -0.568615, -3.30996, -0.369582, 0, 0.929198, 7.04732, 0, 1, 0, 1.77907, -0.929198, 0, -0.369582, -1.65738, 0.997818, 0, 0.0660189, 5.34913, 0, 1, 0, 1.77907, -0.0660189, 0, 0.997818, 0.0488377, -0.400395, 0, 0.916343, 4.30871, 0, 1, 0, 1.77907, -0.916343, 0, -0.400395, -1.74525, 0.84449, 0, -0.535572, 4.51008, 0, 1, 0, 1.77907, 0.535572, 0, 0.84449, -2.76015, -0.0777141, 0, 0.996976, 6.13092, 0, 1, 0, 1.77907, -0.996976, 0, -0.0777141, -1.88904, -0.326972, 0, -0.945034, 7.24418, 0, 1, 0, 1.77907, 0.945034, 0, -0.326972, 0.224092, 0.976488, 0, -0.215573, 6.18766, 0, 1, 0, 1.77907, 0.215573, 0, 0.976488, -0.72249, 0.50912, 0, 0.860695, 8.00184, 0, 1, 0, 1.77907, -0.860695, 0, 0.50912, -0.516893, -0.673835, 0, 0.738882, -1.9032, 0, 1, 0, 1.77907, -0.738882, 0, -0.673835, 4.7362, -0.671201, 0, 0.741275, -0.641487, 0, 1, 0, 1.77907, -0.741275, 0, -0.671201, 3.51781, -0.865336, 0, 0.501192, -2.15228, 0, 1, 0, 1.77907, -0.501192, 0, -0.865336, 3.71092, 0.942055, 0, 0.335459, -0.805892, 0, 1, 0, 1.77907, -0.335459, 0, 0.942055, 2.57191, -0.873129, 0, 0.48749, -1.43638, 0, 1, 0, 1.77907, -0.48749, 0, -0.873129, 4.43878, -0.535304, 0, -0.84466, -1.17275, 0, 1, 0, 1.77907, 0.84466, 0, -0.535304, 3.89601, -0.998098, 0, 0.061643, -1.22083, 0, 1, 0, 1.77907, -0.061643, 0, -0.998098, 3.0048, 0.637128, 0, 0.770758, 0.21118, 0, 1, 0, 1.77907, -0.770758, 0, 0.637128, 4.06839, -0.67429, 0, -0.738467, -0.624969, 0, 1, 0, 1.77907, 0.738467, 0, -0.67429, 2.33993, 0.608505, 0, -0.79355, -1.18986, 0, 1, 0, 1.77907, 0.79355, 0, 0.608505, 5.26409, 0.249238, 0, -0.968442, -0.143385, 0, 1, 0, 1.77907, 0.968442, 0, 0.249238, 3.6332, 0.9919, 0, -0.127022, -1.6145, 0, 1, 0, 1.77907, 0.127022, 0, 0.9919, 5.73691, -0.455607, 0, -0.890181, -1.59145, 0, 1, 0, 1.77907, 0.890181, 0, -0.455607, 5.27521, 0.961994, 0, -0.27307, -1.17663, 0, 1, 0, 1.77907, 0.27307, 0, 0.961994, 2.68124, 0.628006, 0, 0.778208, -0.158791, 0, 1, 0, 1.77907, -0.778208, 0, 0.628006, 4.8301, 0.986117, 0, -0.166053, 0.226301, 0, 1, 0, 1.77907, 0.166053, 0, 0.986117, 5.05208, -0.993963, 0, 0.109714, -1.79751, 0, 1, 0, 1.77907, -0.109714, 0, -0.993963, 3.32392, -0.929095, 0, -0.36984, 0.506402, 0, 1, 0, 1.77907, 0.36984, 0, -0.929095, 4.70668)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oq6ed"]
+emission_shape = 1
+emission_sphere_radius = 70.03
+gravity = Vector3(0, 2, 0)
+initial_velocity_min = 0.25
+initial_velocity_max = 1.05
+scale_min = 0.1
+scale_max = 0.2
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6l8va"]
+albedo_color = Color(1, 1, 0.419608, 1)
+emission_enabled = true
+emission = Color(0.678431, 0.266667, 0.14902, 1)
+emission_energy_multiplier = 4.58
+
+[sub_resource type="SphereMesh" id="SphereMesh_gtwed"]
+material = SubResource("StandardMaterial3D_6l8va")
+radius = 0.405
+height = 0.805
+
 [node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cqjsy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.112476, 0.487188, 0.318875, 0.626263, 0.711416, -0.385126, 0.771455, -0.506493, 0, 0, 0)
@@ -40,8 +123,8 @@ metadata/_editor_floor_ = Vector3(0, 0, -20)
 [node name="Player" parent="." instance=ExtResource("2_mxk27")]
 transform = Transform3D(1.18, 0, 0, 0, 1.18, 0, 0, 0, 1.18, 0, 1.72187, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_cqjsy")
+[node name="Camera" parent="Player" index="2"]
+attributes = SubResource("CameraAttributesPractical_uewcu")
 
 [node name="Enviorment props" type="Node3D" parent="."]
 
@@ -49,6 +132,12 @@ environment = SubResource("Environment_cqjsy")
 
 [node name="Stalagmite_A" parent="Enviorment props/Staglamites" instance=ExtResource("3_14oit")]
 transform = Transform3D(1.20968, 0, 0, 0, 0.757714, 0, 0, 0, 0.468331, -5.64267, 1.57195, -7.00949)
+
+[node name="Stalagmite_A6" parent="Enviorment props/Staglamites" instance=ExtResource("3_14oit")]
+transform = Transform3D(7.40516, 0, 0, 0, 7.61496, 0, 0, 0, 5.64967, -21.743, 1.72678, -1.08727)
+
+[node name="Stalagmite_A7" parent="Enviorment props/Staglamites" instance=ExtResource("3_14oit")]
+transform = Transform3D(7.40516, 0, 0, 0, 7.61496, 0, 0, 0, 5.64967, 10.6372, 4.8521, -12.3969)
 
 [node name="Stalagmite_A2" parent="Enviorment props/Staglamites" instance=ExtResource("3_14oit")]
 transform = Transform3D(1.20968, 0, 0, 0, 0.757714, 0, 0, 0, 0.928733, -1.48626, -0.90213, 3.37643)
@@ -72,6 +161,9 @@ transform = Transform3D(4.28977, -4.78977, 0, 6.89235, 2.98114, 0, 0, 0, 3.15957
 
 [node name="Rock7" parent="Enviorment props/Rocks" instance=ExtResource("3_xkx8g")]
 transform = Transform3D(-2.8384, 5.89453, -2.63575, 8.27, 6.65299, 7.27885e-08, 4.29388, -8.91716, -1.74232, -14.6181, 0.325863, -8.33529)
+
+[node name="Rock14" parent="Enviorment props/Rocks" instance=ExtResource("3_xkx8g")]
+transform = Transform3D(0.194706, 12.5855, 0.0642847, -0.663939, -0.238459, 3.15165, 9.71638, -0.268497, 0.21407, -7.72568, 0.325863, 5.78862)
 
 [node name="Rock10" parent="Enviorment props/Rocks" instance=ExtResource("3_xkx8g")]
 transform = Transform3D(-21.5669, -12.6477, -0.0903698, -5.9861, 10.8519, -2.87083, 11.5105, -18.0538, -1.66231, 17.6749, 4.21754, -16.3481)
@@ -114,3 +206,47 @@ light_color = Color(0, 0.65098, 0.690196, 1)
 light_energy = 7.949
 shadow_enabled = true
 omni_range = 22.4937
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Enviorment props"]
+transform = Transform3D(0.999453, -0.0330854, 0, 0.0330854, 0.999453, 0, 0, 0, 1, -3.43021, 8.83736, 5.72971)
+light_color = Color(0, 0.65098, 0.690196, 1)
+light_energy = 8.863
+shadow_enabled = true
+omni_range = 22.4937
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cjxnj")
+autoplay = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163087, 0.0783796, -0.0924597)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_k66wf")
+disabled = true
+
+[node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="."]
+multimesh = SubResource("MultiMesh_xll7a")
+script = ExtResource("9_ib0we")
+texture_albedo = ExtResource("8_wfbwj")
+scale_h = 0.555
+scale_w = 1.465
+grass_strength = 1.0
+sgt_radius = 2.5
+sgt_density = 25
+sgt_scale = 1.0
+sgt_rotation = 0.0
+sgt_rotation_rand = 1.0
+sgt_dist_min = 0.25
+sgt_follow_normal = false
+metadata/SimpleGrassTextured = "1.0.2"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7371, 0)
+amount = 20
+speed_scale = 0.6
+process_material = SubResource("ParticleProcessMaterial_oq6ed")
+draw_pass_1 = SubResource("SphereMesh_gtwed")
+
+[editable path="Player"]
+[editable path="Player/Sprite/Swing_VFX"]
