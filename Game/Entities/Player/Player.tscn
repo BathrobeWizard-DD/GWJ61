@@ -43,6 +43,9 @@ material = SubResource("StandardMaterial3D_1jiw7")
 radius = 0.037
 height = 0.051
 
+[sub_resource type="Animation" id="Animation_ht85f"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_s56y6"]
 resource_name = "Torch_Attack"
 length = 0.9
@@ -69,9 +72,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [&"Torch_Attack_Idle", &"Torch_Attack_Idle"]
 }
-
-[sub_resource type="Animation" id="Animation_ht85f"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nxc55"]
 _data = {
@@ -109,7 +109,6 @@ mesh = SubResource("ArrayMesh_s43uu")
 speed_scale = 1.5
 
 [node name="GPUParticles3D" parent="Sprite/Swing_VFX" index="2"]
-transform = Transform3D(0.99624, 0, -0.0866341, 0, 1, 0, 0.0866341, 0, 0.99624, -2.35005, 1.39384, 0.978257)
 lifetime = 0.5
 draw_pass_1 = SubResource("SphereMesh_k6hub")
 

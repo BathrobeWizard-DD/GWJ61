@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://diu2ri4c3ay6a" path="res://Game/Assets/2D Art/Characters/Player/Static character test.png" id="1_da5ge"]
 [ext_resource type="PackedScene" uid="uid://c44vle0mtdywp" path="res://Game/Assets/3D Art/stylized_rock_1.tscn" id="2_1i4o2"]
+[ext_resource type="Environment" uid="uid://da1tx2rhmb6mb" path="res://Game/Assets/Shaders/Cave_World_Env.tres" id="2_ptjki"]
 [ext_resource type="PackedScene" uid="uid://gyf1t1mugrha" path="res://Game/Assets/Objects/Stalagmite_A.tscn" id="3_8ov5y"]
 [ext_resource type="PackedScene" uid="uid://bjt8ddmiyotrs" path="res://Game/Assets/Objects/Stalagmite_B.tscn" id="4_ks8p1"]
 [ext_resource type="PackedScene" uid="uid://c8xyvbpwjk7q7" path="res://Game/Assets/Objects/Pyramid.tscn" id="5_n08fn"]
@@ -16,18 +17,6 @@ material = SubResource("StandardMaterial3D_4y15t")
 dof_blur_far_enabled = true
 dof_blur_far_distance = 8.66
 dof_blur_near_enabled = true
-
-[sub_resource type="Environment" id="Environment_6hesp"]
-background_mode = 1
-background_color = Color(0.262745, 0.678431, 0.760784, 1)
-background_energy_multiplier = 0.63
-ambient_light_color = Color(0.152941, 0.305882, 0.286275, 1)
-fog_enabled = true
-fog_light_color = Color(0.317647, 0.576471, 0.611765, 1)
-fog_sun_scatter = 0.01
-fog_sky_affect = 0.663
-fog_height = 0.36
-fog_height_density = 0.6707
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ys0f5"]
 emission_shape = 1
@@ -74,7 +63,7 @@ attributes = SubResource("CameraAttributesPractical_t6lae")
 current = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_6hesp")
+environment = ExtResource("2_ptjki")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.750613, 7.44743, -7.94323)
