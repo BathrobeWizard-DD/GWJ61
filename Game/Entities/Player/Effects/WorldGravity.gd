@@ -8,6 +8,11 @@ func is_enabled(player: PlayerController) -> bool:
 	return not player.is_on_floor()
 
 
-func handle(_player: PlayerController, delta: float) -> PlayerEffect:
+func handle(player: PlayerController, delta: float) -> PlayerEffect:
+	movement = player.movement
 	velocity.y = -1 * gravity * delta * 2.5
+
+	if player.velocity.y < 0.0:
+		movement = Player.Movement.FALLING
+
 	return self

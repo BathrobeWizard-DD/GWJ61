@@ -23,7 +23,7 @@ tonemap_mode = 2
 environment = SubResource("Environment_4qc77")
 
 [node name="Sun" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.84871, -0.438628, 0.295462, 0.374458, -0.103882, 0.921407, -0.373461, 0.892645, 0.252413, 0, 0, 0)
 shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="."]

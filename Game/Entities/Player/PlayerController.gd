@@ -13,6 +13,7 @@ var action: Player.Action = Player.Action.NONE
 
 var input_handlers: Array[PlayerEffect] = [
 	PlayerJump.new(),
+	PlayerJumpCancel.new(),
 	PlayerSlide.new(),
 ]
 
@@ -60,11 +61,16 @@ func apply_effect(handler: PlayerEffect, event) -> void:
 	var movement_name = Player.Movement.keys()[Player.Movement.values().find(movement)]
 	var action_name = Player.Action.keys()[Player.Action.values().find(action)]
 	var animation_name = ("%s_%s" % [movement_name, action_name]).to_lower()
-	if animation.has_animation(action_name) == false:
-		print("Missing animation: %s" % animation_name)
-		animation.play("idle_none")
-	elif animation.current_animation != animation_name:
-		animation.play(animation_name)
+	var missing_animation = animation.has_animation(animation_name) == false
+
+	var current_animation = animation_name
+	if missing_animation:
+		current_animation = "idle_none"
+
+	if animation.current_animation != current_animation:
+		if missing_animation:
+			print("Missing animation: %s" % animation_name)
+		animation.play(current_animation)
 
 	# Apply movement
 	self.velocity += effect.velocity

@@ -113,7 +113,7 @@ transform = Transform3D(0.464968, 0, -0.00548613, 0, 0.465, 0, 0.00548613, 0, 0.
 shaded = true
 alpha_cut = 3
 sprite_frames = ExtResource("2_s6qep")
-animation = &"Slide"
+animation = &"Idle"
 autoplay = "Idle"
 
 [node name="InteractionZone" type="Area3D" parent="Shape"]

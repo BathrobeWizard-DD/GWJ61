@@ -7,5 +7,5 @@ func is_enabled(player: PlayerController) -> bool:
 
 
 func handle(player: PlayerController, _delta: float) -> PlayerEffect:
-	velocity.x = -1 * player.velocity.x * Player.DRAG
+	velocity.x = -1 * player.velocity.x * Player.JUMP_DRAG
 	return self
