@@ -28,7 +28,7 @@ enum Action {
 	BIT_18 = 131072,
 }
 
-const JUMP_VELOCITY = 10.0
+const JUMP_VELOCITY = 15.5
 const FRICTION = 0.33
 const DRAG = 0.33
 const SPEED = 8.0

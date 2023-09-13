@@ -96,6 +96,8 @@ func _physics_process(delta: float) -> void:
 
 	var direction = velocity.normalized()
 	rig.rotation_degrees.y = 180.0 if direction.x < 0.0 else 0.0
+	
+		
 
 	move_and_slide()
 
@@ -110,5 +112,6 @@ func _on_interaction(body: Node3D) -> void:
 	interact.emit(body)
 	for handler in interaction_handlers:
 		apply_effect(handler, body)
+
 
 # endregion
