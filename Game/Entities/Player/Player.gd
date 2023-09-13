@@ -15,7 +15,7 @@ enum Movement {
 	CROUCHING = 128,
 	SLIDING = 256,
 	JUMPING = 512,
-	CLIMBING = 1024,
+	BIT_11 = 1024,
 	BIT_12 = 2048,
 }
 

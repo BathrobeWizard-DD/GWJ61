@@ -56,6 +56,16 @@ func apply_effect(handler: PlayerEffect, event) -> void:
 	state = condition | movement | action
 	state_changed.emit(state)
 
+	# Trigger animation
+	var movement_name = Player.Movement.keys()[Player.Movement.values().find(movement)]
+	var action_name = Player.Action.keys()[Player.Action.values().find(action)]
+	var animation_name = "%s_%s" % [movement_name, action_name]
+	if animation_player.has_animation(animation_name.to_lower()):
+		animation_player.play()
+	else:
+		animation_player.play("idle_none")
+		print("Missing animation: %s", animation_name.to_lower())
+
 	# Apply movement
 	self.velocity += effect.velocity
 
