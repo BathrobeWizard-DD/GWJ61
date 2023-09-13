@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Game/Entities/Player/PlayerController.gd" id="1_7tj2a"]
 [ext_resource type="SpriteFrames" uid="uid://vop5cy84ooo3" path="res://Game/Entities/Player/PlayerSprites.tres" id="2_s6qep"]
 [ext_resource type="Script" path="res://UI/Behaviours/RenderInTexture.gd" id="3_tf1hn"]
-[ext_resource type="PackedScene" uid="uid://cmguf6f8p0646" path="res://UI/traits/ShowOnlyInDebug.tscn" id="3_xbgdx"]
+[ext_resource type="PackedScene" uid="uid://cmguf6f8p0646" path="res://UI/Traits/ShowOnlyInDebug.tscn" id="3_xbgdx"]
 [ext_resource type="Script" path="res://UI/Behaviours/RenderProperties.gd" id="5_for1m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yqwk3"]
