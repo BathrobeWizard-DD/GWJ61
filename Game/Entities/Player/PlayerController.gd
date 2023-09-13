@@ -32,7 +32,7 @@ var collision_handlers: Array[PlayerEffect] = [
 ]
 
 @onready var rig: Node3D = $Shape
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var interaction_zone: Area3D = $Shape/InteractionZone
 @onready var collision_zone: Area3D = $Shape/CollisionZone
 
@@ -60,11 +60,11 @@ func apply_effect(handler: PlayerEffect, event) -> void:
 	var movement_name = Player.Movement.keys()[Player.Movement.values().find(movement)]
 	var action_name = Player.Action.keys()[Player.Action.values().find(action)]
 	var animation_name = ("%s_%s" % [movement_name, action_name]).to_lower()
-	if animation_player.has_animation(animation_name):
-		animation_player.play(animation_name)
-	else:
+	if animation.has_animation(action_name) == false:
 		print("Missing animation: %s" % animation_name)
-		animation_player.play("idle_none")
+		animation.play("idle_none")
+	elif animation.current_animation != animation_name:
+		animation.play(animation_name)
 
 	# Apply movement
 	self.velocity += effect.velocity
