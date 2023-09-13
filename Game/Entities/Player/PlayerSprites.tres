@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=34 format=3 uid="uid://vop5cy84ooo3"]
+[gd_resource type="SpriteFrames" load_steps=35 format=3 uid="uid://vop5cy84ooo3"]
 
 [ext_resource type="Texture2D" uid="uid://bghorf2sr8gy3" path="res://Game/Assets/2D Art/Characters/Player/Rough_Sprite_Sheet.png" id="1_p0ubf"]
 
@@ -129,6 +129,10 @@ region = Rect2(2048, 2560, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_auivj"]
 atlas = ExtResource("1_p0ubf")
 region = Rect2(2560, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pifdo"]
+atlas = ExtResource("1_p0ubf")
+region = Rect2(2560, 2048, 512, 512)
 
 [resource]
 animations = [{
@@ -262,4 +266,12 @@ animations = [{
 "loop": true,
 "name": &"Torch_Attack_Idle",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pifdo")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
 }]
