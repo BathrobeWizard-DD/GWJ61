@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://31tocc1sw5ay"
+path="res://.godot/imported/Platform_small.obj-d5b68a6a584106a368c469ee9af4f4da.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Platform_small.obj-d5b68a6a584106a368c469ee9af4f4da.mesh"]
+
+source_file="res://Game/Assets/3D Art/Platform_small.obj"
+dest_files=["res://.godot/imported/Platform_small.obj-d5b68a6a584106a368c469ee9af4f4da.mesh", "res://.godot/imported/Platform_small.obj-d5b68a6a584106a368c469ee9af4f4da.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
