@@ -63,7 +63,7 @@ func apply_effect(handler: PlayerEffect, event) -> void:
 	if animation_player.has_animation(animation_name):
 		animation_player.play(animation_name)
 	else:
-		#print("Missing animation: %s" % animation_name)
+		print("Missing animation: %s" % animation_name)
 		animation_player.play("idle_none")
 
 	# Apply movement

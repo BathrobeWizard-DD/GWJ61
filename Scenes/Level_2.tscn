@@ -32,7 +32,7 @@ viewport_path = NodePath("DebugInfo/DebugContent")
 [sub_resource type="BoxShape3D" id="BoxShape3D_k66wf"]
 size = Vector3(36.1007, 3.40138, 20.668)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0na0p"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x27ff"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("7_tioef")
@@ -67,7 +67,7 @@ _surfaces = [{
 "format": 4123,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_0na0p"),
+"material": SubResource("ShaderMaterial_x27ff"),
 "primitive": 3,
 "vertex_count": 8,
 "vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 255, 127)

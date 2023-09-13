@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://d1kdpbhabypxj"]
 
 [ext_resource type="Script" path="res://Game/Entities/Player/Player.gd" id="1_l64q0"]
-[ext_resource type="SpriteFrames" uid="uid://vop5cy84ooo3" path="res://Game/Entities/Player/Player_Animated_Sprites.tres" id="2_785xx"]
+[ext_resource type="SpriteFrames" uid="uid://vop5cy84ooo3" path="res://Game/Entities/Player/PlayerSprites.tres" id="2_785xx"]
 [ext_resource type="PackedScene" uid="uid://rwrf21j58qvf" path="res://Game/Assets/3D Art/Swing_VFX.tscn" id="3_3o4ps"]
 [ext_resource type="Texture2D" uid="uid://c32pkwr0qdu4n" path="res://Game/Assets/2D Art/Textures/Swing_VFX.png" id="4_axxau"]
 
