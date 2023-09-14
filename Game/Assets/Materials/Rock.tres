@@ -1,7 +1,14 @@
-[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cy55haau0re4u"]
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://cy55haau0re4u"]
 
 [ext_resource type="Texture2D" uid="uid://c2l0px1jvoc4r" path="res://Game/Assets/Textures/Rock_Base_color.png" id="1_euutu"]
 [ext_resource type="Texture2D" uid="uid://bc5wguxv6b63q" path="res://Game/Assets/Textures/Rock_Normal_DirectX.png" id="2_8o8d0"]
+
+[sub_resource type="Gradient" id="Gradient_f77fj"]
+offsets = PackedFloat32Array(0, 0.99187)
+colors = PackedColorArray(0.383359, 0.287051, 0.1665, 1, 0.398938, 0.234801, 0.254489, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lccdj"]
+gradient = SubResource("Gradient_f77fj")
 
 [resource]
 albedo_texture = ExtResource("1_euutu")
@@ -9,3 +16,5 @@ metallic_specular = 0.0
 normal_enabled = true
 normal_scale = 2.88
 normal_texture = ExtResource("2_8o8d0")
+detail_enabled = true
+detail_albedo = SubResource("GradientTexture1D_lccdj")

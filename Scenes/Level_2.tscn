@@ -32,7 +32,7 @@ viewport_path = NodePath("DebugInfo/DebugContent")
 [sub_resource type="BoxShape3D" id="BoxShape3D_k66wf"]
 size = Vector3(36.1007, 3.40138, 20.668)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_imrbj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gomcu"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("7_tioef")
@@ -67,7 +67,7 @@ _surfaces = [{
 "format": 4123,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_imrbj"),
+"material": SubResource("ShaderMaterial_gomcu"),
 "primitive": 3,
 "vertex_count": 8,
 "vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 255, 127)
@@ -101,27 +101,27 @@ material = SubResource("StandardMaterial3D_6l8va")
 radius = 0.405
 height = 0.805
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ggec5"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mjjfx"]
 noise_type = 4
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dsdl6"]
 seamless = true
-noise = SubResource("FastNoiseLite_ggec5")
+noise = SubResource("FastNoiseLite_mjjfx")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_fahkk"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sr520"]
 frequency = 0.003
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c32dn"]
 seamless = true
-noise = SubResource("FastNoiseLite_fahkk")
+noise = SubResource("FastNoiseLite_sr520")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_72flw"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_djbpf"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kev7x"]
 seamless = true
-noise = SubResource("FastNoiseLite_72flw")
+noise = SubResource("FastNoiseLite_djbpf")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_urkwh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_51sgo"]
 render_priority = 0
 shader = ExtResource("10_hip38")
 shader_parameter/depth_fade_distance = 1.33
@@ -141,7 +141,7 @@ shader_parameter/normal1 = SubResource("NoiseTexture2D_dsdl6")
 shader_parameter/normal2 = SubResource("NoiseTexture2D_c32dn")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3570a"]
-material = SubResource("ShaderMaterial_urkwh")
+material = SubResource("ShaderMaterial_51sgo")
 size = Vector2(15.91, 18.66)
 
 [node name="Node3D2" type="Node3D"]

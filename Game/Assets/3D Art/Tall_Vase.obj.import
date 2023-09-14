@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://5va7rykuomyh"
+path="res://.godot/imported/Tall_Vase.obj-0f33172a5e78f6178fe3738cf9df5081.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Tall_Vase.obj-0f33172a5e78f6178fe3738cf9df5081.mesh"]
+
+source_file="res://Game/Assets/3D Art/Tall_Vase.obj"
+dest_files=["res://.godot/imported/Tall_Vase.obj-0f33172a5e78f6178fe3738cf9df5081.mesh", "res://.godot/imported/Tall_Vase.obj-0f33172a5e78f6178fe3738cf9df5081.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

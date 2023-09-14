@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://pfva5lsdh5jr"
+path="res://.godot/imported/Fat_Vase.obj-33b139565aec3bc5418d32a6989a518b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Fat_Vase.obj-33b139565aec3bc5418d32a6989a518b.mesh"]
+
+source_file="res://Game/Assets/3D Art/Fat_Vase.obj"
+dest_files=["res://.godot/imported/Fat_Vase.obj-33b139565aec3bc5418d32a6989a518b.mesh", "res://.godot/imported/Fat_Vase.obj-33b139565aec3bc5418d32a6989a518b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
