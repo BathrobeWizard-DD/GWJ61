@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk2odpq22dkrl"]
+
+[ext_resource type="Material" uid="uid://vspig12t6jy6" path="res://Game/Assets/Materials/Grass_Root_Platform.tres" id="1_bifep"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owkpw"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_q0tud"]
+_surfaces = [{
+"aabb": AABB(-1, -1.57985, -0.245786, 2, 3.15969, 0.209186),
+"format": 4097,
+"index_count": 12,
+"index_data": PackedByteArray(1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 2, 0, 2, 0, 5, 0, 3, 0, 2, 0, 4, 0, 5, 0),
+"primitive": 3,
+"vertex_count": 6,
+"vertex_data": PackedByteArray(254, 255, 127, 191, 107, 56, 202, 191, 61, 244, 21, 189, 254, 255, 127, 63, 107, 56, 202, 191, 61, 244, 21, 189, 254, 255, 127, 191, 107, 56, 202, 63, 45, 244, 21, 189, 254, 255, 127, 63, 107, 56, 202, 63, 45, 244, 21, 189, 254, 255, 127, 191, 107, 56, 202, 63, 68, 175, 123, 190, 254, 255, 127, 63, 107, 56, 202, 63, 68, 175, 123, 190)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_01uko"]
+resource_name = "RootsAndGrass_Plane_037"
+_surfaces = [{
+"aabb": AABB(-1, -1.57985, -0.245786, 2, 3.15969, 0.209186),
+"attribute_data": PackedByteArray(88, 20, 33, 63, 29, 185, 122, 63, 88, 20, 33, 63, 122, 233, 25, 63, 232, 217, 3, 61, 29, 185, 122, 63, 224, 217, 3, 61, 124, 233, 25, 63, 232, 217, 3, 61, 29, 185, 122, 63, 224, 217, 3, 61, 124, 233, 25, 63),
+"format": 4119,
+"index_count": 12,
+"index_data": PackedByteArray(1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 2, 0, 2, 0, 5, 0, 3, 0, 2, 0, 4, 0, 5, 0),
+"material": SubResource("StandardMaterial3D_owkpw"),
+"primitive": 3,
+"vertex_count": 6,
+"vertex_data": PackedByteArray(254, 255, 127, 191, 107, 56, 202, 191, 61, 244, 21, 189, 255, 127, 255, 127, 255, 127, 0, 128, 254, 255, 127, 63, 107, 56, 202, 191, 61, 244, 21, 189, 255, 127, 255, 127, 255, 127, 0, 128, 254, 255, 127, 191, 107, 56, 202, 63, 45, 244, 21, 189, 255, 127, 255, 191, 255, 127, 254, 159, 254, 255, 127, 63, 107, 56, 202, 63, 45, 244, 21, 189, 255, 127, 255, 191, 255, 127, 254, 159, 254, 255, 127, 191, 107, 56, 202, 63, 68, 175, 123, 190, 255, 127, 255, 255, 255, 255, 255, 191, 254, 255, 127, 63, 107, 56, 202, 63, 68, 175, 123, 190, 255, 127, 255, 255, 255, 255, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_q0tud")
+
+[node name="RootRidged" type="MeshInstance3D"]
+material_override = ExtResource("1_bifep")
+mesh = SubResource("ArrayMesh_01uko")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_bifep")

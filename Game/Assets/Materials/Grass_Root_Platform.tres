@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://vspig12t6jy6"]
+
+[ext_resource type="Texture2D" uid="uid://bidk7658uq3qw" path="res://Game/Assets/Textures/Grass_Platform_Base_color.png" id="1_1ug00"]
+[ext_resource type="Texture2D" uid="uid://tdosvi32nhnx" path="res://Game/Assets/Textures/Grass_Platform_Normal_DirectX.png" id="2_wl8jd"]
+
+[resource]
+transparency = 4
+cull_mode = 2
+diffuse_mode = 3
+albedo_color = Color(0.588235, 0.639216, 0.627451, 1)
+albedo_texture = ExtResource("1_1ug00")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_wl8jd")

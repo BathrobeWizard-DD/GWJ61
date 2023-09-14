@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dystgedtoxc3w"]
+
+[ext_resource type="Material" uid="uid://vspig12t6jy6" path="res://Game/Assets/Materials/Grass_Root_Platform.tres" id="1_lmfbl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysxnj"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jtky3"]
+_surfaces = [{
+"aabb": AABB(-1, -1.57985, -0.0366099, 2, 3.15969, 9.99868e-06),
+"format": 4097,
+"index_count": 6,
+"index_data": PackedByteArray(1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 2, 0),
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(254, 255, 127, 191, 107, 56, 202, 191, 61, 244, 21, 189, 254, 255, 127, 63, 107, 56, 202, 191, 61, 244, 21, 189, 254, 255, 127, 191, 107, 56, 202, 63, 45, 244, 21, 189, 254, 255, 127, 63, 107, 56, 202, 63, 45, 244, 21, 189)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xeqy0"]
+resource_name = "RootsAndGrass_Plane"
+_surfaces = [{
+"aabb": AABB(-1, -1.57985, -0.0366099, 2, 3.15969, 9.99868e-06),
+"attribute_data": PackedByteArray(88, 20, 33, 63, 29, 185, 122, 63, 88, 20, 33, 63, 122, 233, 25, 63, 232, 217, 3, 61, 29, 185, 122, 63, 224, 217, 3, 61, 124, 233, 25, 63),
+"format": 4119,
+"index_count": 6,
+"index_data": PackedByteArray(1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 2, 0),
+"material": SubResource("StandardMaterial3D_ysxnj"),
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(254, 255, 127, 191, 107, 56, 202, 191, 61, 244, 21, 189, 255, 127, 255, 127, 255, 127, 0, 128, 254, 255, 127, 63, 107, 56, 202, 191, 61, 244, 21, 189, 255, 127, 255, 127, 255, 127, 0, 128, 254, 255, 127, 191, 107, 56, 202, 63, 45, 244, 21, 189, 255, 127, 255, 127, 255, 127, 0, 128, 254, 255, 127, 63, 107, 56, 202, 63, 45, 244, 21, 189, 255, 127, 255, 127, 255, 127, 0, 128)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jtky3")
+
+[node name="RootFlat" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_xeqy0")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_lmfbl")
