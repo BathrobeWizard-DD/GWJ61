@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bni0euwy85d2c"]
+
+[ext_resource type="Texture2D" uid="uid://bitjdrvac2mh6" path="res://Game/Assets/Textures/Stonewall_TExture.png" id="1_45u0q"]
+[ext_resource type="Texture2D" uid="uid://domrgcak1etkl" path="res://Game/Assets/Textures/Panel_Normal.png" id="2_skrwp"]
+
+[resource]
+albedo_texture = ExtResource("1_45u0q")
+normal_enabled = true
+normal_scale = 3.64
+normal_texture = ExtResource("2_skrwp")

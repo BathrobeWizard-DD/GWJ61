@@ -10,7 +10,7 @@ var pattern: RegEx:
 		if pattern != null:
 			return pattern
 		var regex = RegEx.new()
-		regex.compile("\\{([a-z:_]+)\\}")
+		regex.compile("\\{([a-z_]+:)?([a-z_]+)\\}")
 		return regex
 
 # region: Lifecycle
@@ -39,10 +39,19 @@ func _process(_delta) -> void:
 
 func render() -> void:
 	for result in pattern.search_all(template):
-		var key = result.get_string(1)
-		if not (key in Variables):
+		var handler = ("%s" % result.get_string(1)).replace(":", "")
+		var key = "%s" % result.get_string(2)
+		if not (key in Variables) and not (handler in Variables):
 			continue
-		var value = Variables[key].call() if Variables[key] is Callable else Variables[key]
-		self.text = template.replace("{%s}" % key, value)
+
+		var value = "N/A"
+		if handler in Variables:
+			value = Variables[handler].call(key)
+
+		if key != "" and key in Variables:
+			value = Variables[key].call() if Variables[key] is Callable else Variables[key]
+
+		var rendered = template.replace("{%s:%s}" % [handler, key], "%s" % value)
+		self.text = rendered.replace("{%s}" % key, "%s" % value)
 
 # endregion

@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://5mx5mcgqk12w"]
+
+[ext_resource type="Script" path="res://Game/Interactibles/Tok/TokBall.gd" id="1_ott1t"]
+[ext_resource type="PackedScene" uid="uid://cmguf6f8p0646" path="res://UI/Traits/ShowOnlyInDebug.tscn" id="2_ktsoj"]
+[ext_resource type="Script" path="res://UI/Behaviours/RenderInTexture.gd" id="2_nmq5i"]
+[ext_resource type="Script" path="res://UI/Behaviours/RenderProperties.gd" id="3_13rx5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tvsmk"]
+radius = 0.25
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_niyua"]
+size = Vector2(48, 48)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bxe68"]
+viewport_path = NodePath("DebugInfo/DebugContent")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5imf"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0, 0, 0, 1)
+
+[node name="TokBall1" type="RigidBody3D"]
+collision_layer = 4
+axis_lock_linear_z = true
+axis_lock_angular_z = true
+gravity_scale = 3.0
+continuous_cd = true
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_ott1t")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_tvsmk")
+
+[node name="CollisionZone" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 50
+
+[node name="CollisionShape" type="CollisionShape3D" parent="CollisionZone"]
+shape = SubResource("SphereShape3D_tvsmk")
+
+[node name="Sprite(Placeholder)" type="Sprite3D" parent="."]
+transparent = false
+texture = SubResource("PlaceholderTexture2D_niyua")
+
+[node name="DebugInfo" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.828285, 0.560307, 0, -0.560307, 0.828285, 0, 0.48913, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_bxe68")
+
+[node name="ShowOnlyInDebug" parent="DebugInfo" instance=ExtResource("2_ktsoj")]
+
+[node name="DebugContent" type="SubViewport" parent="DebugInfo"]
+size = Vector2i(235, 110)
+script = ExtResource("2_nmq5i")
+
+[node name="Container" type="PanelContainer" parent="DebugInfo/DebugContent"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u5imf")
+
+[node name="Data" type="VBoxContainer" parent="DebugInfo/DebugContent/Container"]
+layout_mode = 2
+
+[node name="CollisionLayer" type="Label" parent="DebugInfo/DebugContent/Container/Data" node_paths=PackedStringArray("inspected_object")]
+layout_mode = 2
+text = "Collision: {collision_layer}"
+script = ExtResource("3_13rx5")
+inspected_object = NodePath("../../../../..")
+update_on_ready = false
+update_on_process = true
+
+[node name="LinearVelocity" type="Label" parent="DebugInfo/DebugContent/Container/Data" node_paths=PackedStringArray("inspected_object")]
+layout_mode = 2
+text = "Velocity(L): {linear_velocity}"
+script = ExtResource("3_13rx5")
+inspected_object = NodePath("../../../../..")
+update_on_ready = false
+update_on_process = true
+
+[node name="SleepingState" type="Label" parent="DebugInfo/DebugContent/Container/Data" node_paths=PackedStringArray("inspected_object")]
+layout_mode = 2
+text = "Sleeping? {sleeping}"
+script = ExtResource("3_13rx5")
+inspected_object = NodePath("../../../../..")
+update_on_ready = false
+update_on_process = true

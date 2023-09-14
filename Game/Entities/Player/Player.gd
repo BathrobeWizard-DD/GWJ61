@@ -1,21 +1,38 @@
-extends CharacterBody3D
+class_name Player
+extends Node
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+enum Condition {
+	ALIVE = 1,
+	HURT = 2,
+	HEALING = 4,
+	DEAD = 8,
+}
 
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+enum Movement {
+	IDLE = 16,
+	WALKING = 32,
+	RUNNING = 64,
+	CROUCHING = 128,
+	SLIDING = 256,
+	JUMPING = 512,
+	FALLING = 1024,
+	BIT_12 = 2048,
+}
 
+enum Action {
+	NONE = 4096,
+	INTERACTING = 8192,
+	AIMING = 16384,
+	ATTACKING = 32768,
+	BIT_17 = 65536,
+	BIT_18 = 131072,
+}
 
-func _physics_process(delta):
-	if not is_on_floor():
-		velocity.y -= gravity * delta
+const JUMP_VELOCITY = 15.5
+const JUMP_DRAG = 0.20
 
-	if Input.is_action_just_pressed("move_jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+const MOVEMENT_SPEED = 8.0
+const MOVEMENT_FRICTION = 0.33
 
-	# var input_dir = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
-	var input_dir = Input.get_axis("move_left", "move_right")
-	var direction = (transform.basis * Vector3(input_dir, 0, 0)).normalized()
-	velocity.x = direction.x * SPEED if direction else move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
+const SLIDE_ENERGY = 48.0
+const SLIDE_FRICTION = 0.10

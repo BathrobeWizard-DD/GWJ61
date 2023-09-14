@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=32 format=3 uid="uid://vop5cy84ooo3"]
+[gd_resource type="SpriteFrames" load_steps=35 format=3 uid="uid://vop5cy84ooo3"]
 
 [ext_resource type="Texture2D" uid="uid://bghorf2sr8gy3" path="res://Game/Assets/2D Art/Characters/Player/Rough_Sprite_Sheet.png" id="1_p0ubf"]
 
@@ -74,6 +74,10 @@ region = Rect2(1024, 1024, 510, 512)
 atlas = ExtResource("1_p0ubf")
 region = Rect2(1536, 1024, 510, 512)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jq3o"]
+atlas = ExtResource("1_p0ubf")
+region = Rect2(2048, 2048, 512, 512)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ayhie"]
 atlas = ExtResource("1_p0ubf")
 region = Rect2(0, 512, 512, 512)
@@ -98,6 +102,10 @@ region = Rect2(2048, 512, 512, 512)
 atlas = ExtResource("1_p0ubf")
 region = Rect2(2560, 512, 512, 512)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_byy0m"]
+atlas = ExtResource("1_p0ubf")
+region = Rect2(3584, 2048, 512, 512)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3eeig"]
 atlas = ExtResource("1_p0ubf")
 region = Rect2(0, 2560, 512, 512)
@@ -121,6 +129,10 @@ region = Rect2(2048, 2560, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_auivj"]
 atlas = ExtResource("1_p0ubf")
 region = Rect2(2560, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pifdo"]
+atlas = ExtResource("1_p0ubf")
+region = Rect2(2560, 2048, 512, 512)
 
 [resource]
 animations = [{
@@ -195,6 +207,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_2jq3o")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ayhie")
 }, {
 "duration": 1.0,
@@ -218,6 +238,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_byy0m")
+}],
+"loop": true,
+"name": &"Slide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3eeig")
 }, {
 "duration": 1.0,
@@ -238,4 +266,12 @@ animations = [{
 "loop": true,
 "name": &"Torch_Attack_Idle",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pifdo")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
 }]

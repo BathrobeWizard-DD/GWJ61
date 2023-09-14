@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://crfnjjb4sj86u"]
+
+[ext_resource type="Script" path="res://Game/Scripts/Temp_Port.gd" id="1_iv0nf"]
+[ext_resource type="Script" path="res://Game/Assets/Objects/portal.gd" id="1_llu7k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u6ryr"]
+size = Vector3(2.4369, 4.55282, 5.00616)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2i8im"]
+
+[node name="Portal" type="Node3D"]
+script = ExtResource("1_llu7k")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("1_iv0nf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0685126, 1.60416, -0.0041523)
+shape = SubResource("BoxShape3D_u6ryr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20193, 0)
+mesh = SubResource("SphereMesh_2i8im")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

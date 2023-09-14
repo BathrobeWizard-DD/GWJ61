@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://efaec0mdlm44"]
+
+[ext_resource type="Texture2D" uid="uid://c2d5ybx7ssacw" path="res://Game/Assets/Textures/PLatform TExture.png" id="1_vi2m6"]
+[ext_resource type="Texture2D" uid="uid://dy1r7xsopgnme" path="res://Game/Assets/Textures/Platform_Normal.png" id="2_rymgg"]
+
+[resource]
+resource_name = "Material.003"
+albedo_texture = ExtResource("1_vi2m6")
+metallic = 0.018182
+normal_enabled = true
+normal_texture = ExtResource("2_rymgg")

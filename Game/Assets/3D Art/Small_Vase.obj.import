@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bd62qxoa7cbpx"
+path="res://.godot/imported/Small_Vase.obj-185676e9a21f0e7e73e0be4a160d7119.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Small_Vase.obj-185676e9a21f0e7e73e0be4a160d7119.mesh"]
+
+source_file="res://Game/Assets/3D Art/Small_Vase.obj"
+dest_files=["res://.godot/imported/Small_Vase.obj-185676e9a21f0e7e73e0be4a160d7119.mesh", "res://.godot/imported/Small_Vase.obj-185676e9a21f0e7e73e0be4a160d7119.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
