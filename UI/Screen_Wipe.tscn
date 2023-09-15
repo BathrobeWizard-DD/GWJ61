@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://hep4gjlml8hi"]
+
+[ext_resource type="Script" path="res://Game/Scripts/Screen_Wipe.gd" id="1_8qrms"]
+
+[sub_resource type="Animation" id="Animation_lu8jl"]
+resource_name = "Wipe"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00787055, 0.491562),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p1ck3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dr125"]
+_data = {
+"RESET": SubResource("Animation_p1ck3"),
+"Wipe": SubResource("Animation_lu8jl")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8qrms")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1169.0
+offset_bottom = 676.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_dr125")
+}

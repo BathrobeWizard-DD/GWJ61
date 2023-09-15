@@ -1,6 +1,11 @@
 extends Node3D
 @export_file("*.tscn") var Portal
-
+@export_enum(
+	"Starting",
+	"Temple",
+	"Caves",
+	"Final"
+) var Level
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -16,4 +21,5 @@ func _on_area_3d_body_entered(body):
 
 
 func _on_area_3d_area_entered(area):
-	get_tree().change_scene_to_file(Portal)
+	ScreenWipe.Screenwipe_Start(Portal)
+	

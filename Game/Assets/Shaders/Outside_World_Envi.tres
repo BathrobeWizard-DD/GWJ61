@@ -48,3 +48,6 @@ fog_sun_scatter = 0.22
 fog_density = 0.0035
 fog_aerial_perspective = 0.358
 fog_height = -21.56
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0125
+volumetric_fog_sky_affect = 0.021

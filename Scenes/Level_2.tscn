@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://7e25cfibj0dc"]
+[gd_scene load_steps=29 format=3 uid="uid://7e25cfibj0dc"]
 
 [ext_resource type="MeshLibrary" uid="uid://bu538bkut3drt" path="res://Game/Assets/Sandbox_Old.meshlib" id="1_egxyy"]
 [ext_resource type="PackedScene" uid="uid://cfr156lchs1is" path="res://Game/Entities/Player/Player.tscn" id="2_mxk27"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="8_wfbwj"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="9_ib0we"]
 [ext_resource type="Shader" path="res://Game/Assets/Shaders/WaterShader.gdshader" id="10_hip38"]
+[ext_resource type="PackedScene" uid="uid://crfnjjb4sj86u" path="res://Game/Assets/Objects/portal.tscn" id="11_bsvt8"]
 
 [sub_resource type="Environment" id="Environment_cqjsy"]
 background_mode = 1
@@ -32,7 +33,7 @@ viewport_path = NodePath("DebugInfo/DebugContent")
 [sub_resource type="BoxShape3D" id="BoxShape3D_k66wf"]
 size = Vector3(36.1007, 3.40138, 20.668)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gomcu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q41o3"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("7_tioef")
@@ -67,7 +68,7 @@ _surfaces = [{
 "format": 4123,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_gomcu"),
+"material": SubResource("ShaderMaterial_q41o3"),
 "primitive": 3,
 "vertex_count": 8,
 "vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 255, 127)
@@ -474,4 +475,9 @@ draw_pass_1 = SubResource("SphereMesh_gtwed")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.0242, 52.9593, -8.69055)
 mesh = SubResource("PlaneMesh_3570a")
 
+[node name="Portal" parent="." instance=ExtResource("11_bsvt8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.95197, 2.69527, 0)
+Portal = "res://Scenes/Level_1_Temple.tscn"
+
 [editable path="Player"]
+[editable path="Player/VFX/Swing_VFX"]

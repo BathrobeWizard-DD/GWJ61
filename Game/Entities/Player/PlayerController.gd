@@ -106,6 +106,7 @@ func _physics_process(delta: float) -> void:
 		
 
 	move_and_slide()
+	
 
 
 func _on_collision(body: Node3D) -> void:
@@ -121,3 +122,6 @@ func _on_interaction(body: Node3D) -> void:
 
 
 # endregion
+
+
+	

@@ -1,7 +1,7 @@
 extends Node
 
 var game_title: String = ProjectSettings.get_setting("application/config/name")
-
+var wipe:bool = false 
 
 func game_version() -> String:
 	if Git.BUILD != null:
