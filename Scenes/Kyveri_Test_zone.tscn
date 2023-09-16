@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cuecmpdeo1p3e" path="res://Game/Assets/2D Art/Textures/Stone_Brick_!.png" id="11_tw2cw"]
 [ext_resource type="Texture2D" uid="uid://dhoc8gi4heo5i" path="res://Game/Assets/2D Art/Textures/Stone_Brick_Spec.png" id="12_8h7wg"]
 [ext_resource type="Texture2D" uid="uid://c1yjgu57bkr4q" path="res://Game/Assets/2D Art/Textures/Stone_Brick_Normal.png" id="13_uacec"]
-[ext_resource type="SpriteFrames" uid="uid://vop5cy84ooo3" path="res://Game/Entities/Player/Player_Animated_Sprites.tres" id="14_1xs8y"]
+[ext_resource type="SpriteFrames" uid="uid://vop5cy84ooo3" path="res://Game/Entities/Player/PlayerSprites.tres" id="14_1xs8y"]
 [ext_resource type="Environment" uid="uid://ccwaowgain8fa" path="res://Game/Assets/Shaders/Outside_World_Envi.tres" id="18_sf6ei"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ktqu"]
@@ -107,7 +107,7 @@ size = Vector2(0.5, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5itqv"]
 size = Vector3(20.195, 1, 13.6868)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_612ji"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4uw0"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_vqyut")
@@ -142,7 +142,7 @@ _surfaces = [{
 "format": 4123,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_612ji"),
+"material": SubResource("ShaderMaterial_g4uw0"),
 "primitive": 3,
 "vertex_count": 8,
 "vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 255, 127)

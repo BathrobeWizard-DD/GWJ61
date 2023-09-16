@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://UI/Behaviours/RenderLabelContent.gd" id="1_1tmir"]
 [ext_resource type="Script" path="res://UI/Actions/SwitchToScene.gd" id="2_qfxg6"]
 [ext_resource type="Script" path="res://UI/Actions/QuitGame.gd" id="3_2mo8a"]
-[ext_resource type="PackedScene" uid="uid://b18l1f52smrku" path="res://UI/Traits/HideOnWebPlatform.tscn" id="4_efl8f"]
+[ext_resource type="PackedScene" uid="uid://b18l1f52smrku" path="res://UI/traits/HideOnWebPlatform.tscn" id="4_efl8f"]
 [ext_resource type="PackedScene" uid="uid://5wa46lfuork6" path="res://UI/BottomPanel.tscn" id="5_ng5qm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3peju"]

@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://7r6lwyg7hu0x"]
+
+[ext_resource type="MeshLibrary" uid="uid://bu538bkut3drt" path="res://Game/Assets/Sandbox_Old.meshlib" id="1_56q55"]
+[ext_resource type="PackedScene" uid="uid://cfr156lchs1is" path="res://Game/Entities/Player/Player.tscn" id="2_um0sb"]
+[ext_resource type="Environment" uid="uid://ccwaowgain8fa" path="res://Game/Assets/Shaders/Outside_World_Envi.tres" id="3_ydk0u"]
+[ext_resource type="PackedScene" uid="uid://bqb8p58mon3n8" path="res://Scenes/Enemy1.tscn" id="4_rwmiw"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dlmml"]
+viewport_path = NodePath("DebugInfo/DebugContent")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_nc22r"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 65.87
+
+[node name="PlayerTesting" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh_library = ExtResource("1_56q55")
+data = {
+"cells": PackedInt32Array(131069, 0, 10, 131069, 4, 10, 131069, 8, 10, 131069, 12, 10, 131069, 16, 10, 131069, 65532, 10, 131069, 65528, 10, 131069, 65524, 10, 131069, 65520, 10, 196605, 4, 10, 196605, 8, 10, 327677, 13, 11, 327677, 65533, 8, 458749, 65529, 11, 327677, 17, 11)
+}
+metadata/_editor_floor_ = Vector3(0, 4, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_um0sb")]
+transform = Transform3D(1.18, 0, 0, 0, 1.18, 0, 0, 0, 1.18, -19.3001, 5.01342, 4.44065)
+collision_mask = 53
+
+[node name="DebugInfo" parent="Player" index="3"]
+texture = SubResource("ViewportTexture_dlmml")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(0.847458, 0, 0, 0, 0.761418, 0.372059, 0, -0.372059, 0.761418, -0.541201, 3.47017, 6.54525)
+attributes = SubResource("CameraAttributesPractical_nc22r")
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.837242, 0.546833, 0, -0.546833, -0.837242, 0, 0, 0)
+light_color = Color(0.741176, 0.654902, 0.439216, 1)
+light_energy = 3.285
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_ydk0u")
+
+[node name="CharacterBody3D2" parent="." instance=ExtResource("4_rwmiw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01776, 8.35812, 7.64006)
+
+[editable path="Player"]
+[editable path="Player/VFX/Swing_VFX"]

@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://bqb8p58mon3n8"]
+
+[ext_resource type="Script" path="res://Game/Scripts/Dummy_Enemy.gd" id="1_xxm0w"]
+[ext_resource type="Texture2D" uid="uid://c00lhkdnrsvl4" path="res://Game/Assets/2D Art/Characters/Enemies/Skeleton_Enemy_Sheet.png" id="2_m4xh4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ybpdu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2envk"]
+atlas = ExtResource("2_m4xh4")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1odg2"]
+atlas = ExtResource("2_m4xh4")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvmvh"]
+atlas = ExtResource("2_m4xh4")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuvay"]
+atlas = ExtResource("2_m4xh4")
+region = Rect2(0, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxv8d"]
+atlas = ExtResource("2_m4xh4")
+region = Rect2(512, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75fe0"]
+atlas = ExtResource("2_m4xh4")
+region = Rect2(1024, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wop0y"]
+atlas = ExtResource("2_m4xh4")
+region = Rect2(1536, 1024, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y3b0a"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_2envk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1odg2")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_yvmvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1odg2")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxv8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75fe0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wop0y")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 6.0
+}]
+
+[node name="CharacterBody3D2" type="CharacterBody3D"]
+collision_layer = 256
+collision_mask = 513
+script = ExtResource("1_xxm0w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.231926, -0.306019, -2.81911)
+shape = SubResource("CapsuleShape3D_ybpdu")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.3242, -0.8241, -2.75007)
+shaded = true
+alpha_cut = 3
+sprite_frames = SubResource("SpriteFrames_y3b0a")
+animation = &"Run"
+autoplay = "Idle"
+
+[node name="move" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="move" to="." method="_on_move_timeout"]

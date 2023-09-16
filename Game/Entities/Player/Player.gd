@@ -29,7 +29,7 @@ enum Action {
 }
 
 const JUMP_VELOCITY = 15.5
-const JUMP_DRAG = 0.20
+const JUMP_DRAG = 0.28
 
 const MOVEMENT_SPEED = 8.0
 const MOVEMENT_FRICTION = 0.33

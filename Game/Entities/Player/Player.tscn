@@ -15,6 +15,31 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_yqwk3"]
 size = Vector3(1, 2.5, 1)
 
+[sub_resource type="Animation" id="Animation_k1ldr"]
+resource_name = "attack_none"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shape/Sprite(Placeholder):animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Torch_Attack_Idle"]
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VFX/Swing_VFX/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("Swing Down", "Swing Up", "[stop]"),
+"times": PackedFloat32Array(-0.00314822, 0.459641, 0.972801)
+}
+
 [sub_resource type="Animation" id="Animation_el5l4"]
 resource_name = "falling_none"
 tracks/0/type = "value"
@@ -136,31 +161,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_k1ldr"]
-resource_name = "attack_none"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Shape/Sprite(Placeholder):animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Torch_Attack_Idle"]
-}
-tracks/1/type = "animation"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("VFX/Swing_VFX/AnimationPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": PackedStringArray("Swing Down", "Swing Up", "[stop]"),
-"times": PackedFloat32Array(-0.00314822, 0.459641, 0.972801)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ldcof"]
