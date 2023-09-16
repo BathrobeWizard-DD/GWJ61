@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cfr156lchs1is"]
+[gd_scene load_steps=37 format=3 uid="uid://cfr156lchs1is"]
 
 [ext_resource type="Script" path="res://Game/Entities/Player/PlayerController.gd" id="1_7tj2a"]
 [ext_resource type="SpriteFrames" uid="uid://vop5cy84ooo3" path="res://Game/Entities/Player/PlayerSprites.tres" id="2_s6qep"]
@@ -11,9 +11,37 @@
 [ext_resource type="Texture2D" uid="uid://baysrkuckb6eq" path="res://Game/Assets/2D Art/Textures/Dust_Cloud.png" id="9_wp4oo"]
 [ext_resource type="PackedScene" uid="uid://rwrf21j58qvf" path="res://Game/Assets/3D Art/Swing_VFX.tscn" id="10_pmevb"]
 [ext_resource type="Texture2D" uid="uid://c32pkwr0qdu4n" path="res://Game/Assets/2D Art/Textures/Swing_VFX.png" id="11_wcyx2"]
+[ext_resource type="Script" path="res://Game/Scripts/HurtBox.gd" id="12_47xcq"]
+[ext_resource type="PackedScene" uid="uid://cbyih8robhl8n" path="res://Game/Hurtbox.tscn" id="13_6ypqp"]
+[ext_resource type="Script" path="res://Game/Entities/Player/Actions/PlayerJump.gd" id="14_wodi4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yqwk3"]
 size = Vector3(1, 2.5, 1)
+
+[sub_resource type="Animation" id="Animation_k1ldr"]
+resource_name = "attack_none"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shape/Sprite(Placeholder):animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Torch_Attack_Idle"]
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VFX/Swing_VFX/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("Swing Down", "Swing Up", "[stop]"),
+"times": PackedFloat32Array(-0.00314822, 0.459641, 0.972801)
+}
 
 [sub_resource type="Animation" id="Animation_el5l4"]
 resource_name = "falling_none"
@@ -138,31 +166,6 @@ tracks/2/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_k1ldr"]
-resource_name = "attack_none"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Shape/Sprite(Placeholder):animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Torch_Attack_Idle"]
-}
-tracks/1/type = "animation"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("VFX/Swing_VFX/AnimationPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": PackedStringArray("Swing Down", "Swing Up", "[stop]"),
-"times": PackedFloat32Array(-0.00314822, 0.459641, 0.972801)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ldcof"]
 _data = {
 "attack_none": SubResource("Animation_k1ldr"),
@@ -245,12 +248,19 @@ material = SubResource("StandardMaterial3D_1jiw7")
 radius = 0.037
 height = 0.051
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7kywt"]
+size = Vector3(1.5754, 2.71091, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p2cfk"]
+height = 2.7718
+
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 113
 axis_lock_linear_z = true
 axis_lock_angular_z = true
 script = ExtResource("1_7tj2a")
+MAXHealth = 40
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
@@ -370,4 +380,23 @@ speed_scale = 1.5
 lifetime = 0.5
 draw_pass_1 = SubResource("SphereMesh_2srbe")
 
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("12_47xcq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02428, 0)
+shape = SubResource("BoxShape3D_7kywt")
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("Hurting") instance=ExtResource("13_6ypqp")]
+Hurting = NodePath("..")
+
+[node name="CollisionShape3D" parent="HurtBox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33321, 0)
+shape = SubResource("CapsuleShape3D_p2cfk")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.4
+script = ExtResource("14_wodi4")
+
 [editable path="VFX/Swing_VFX"]
+[editable path="HurtBox"]

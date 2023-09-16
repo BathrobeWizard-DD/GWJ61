@@ -14,7 +14,6 @@ func handle(player: PlayerController, event: InputEvent) -> PlayerEffect:
 		return null
 
 	if event.is_action_released("move_jump"):
-		print("%s casted magic to cancel their jump!" % player)
-		velocity.y = -1.0 * player.velocity.y
+		player.velocity.y = lerp(int(player.velocity.y),0,0.4)
 
 	return self

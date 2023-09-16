@@ -1,15 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://5mx5mcgqk12w"]
+[gd_scene load_steps=12 format=3 uid="uid://5mx5mcgqk12w"]
 
 [ext_resource type="Script" path="res://Game/Interactibles/Tok/TokBall.gd" id="1_ott1t"]
-[ext_resource type="PackedScene" uid="uid://cmguf6f8p0646" path="res://UI/Traits/ShowOnlyInDebug.tscn" id="2_ktsoj"]
+[ext_resource type="Texture2D" uid="uid://bswbqh80ud53f" path="res://Game/Assets/2D Art/Textures/Stone_Brick_edge.png" id="2_2wsn5"]
+[ext_resource type="PackedScene" uid="uid://cmguf6f8p0646" path="res://UI/traits/ShowOnlyInDebug.tscn" id="2_ktsoj"]
 [ext_resource type="Script" path="res://UI/Behaviours/RenderInTexture.gd" id="2_nmq5i"]
 [ext_resource type="Script" path="res://UI/Behaviours/RenderProperties.gd" id="3_13rx5"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_tvsmk"]
-radius = 0.25
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5jftn"]
+friction = 0.0
+bounce = 0.5
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_niyua"]
-size = Vector2(48, 48)
+[sub_resource type="SphereShape3D" id="SphereShape3D_tvsmk"]
+radius = 0.524392
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8p2pc"]
+albedo_texture = ExtResource("2_2wsn5")
+
+[sub_resource type="SphereMesh" id="SphereMesh_eifb3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_bxe68"]
 viewport_path = NodePath("DebugInfo/DebugContent")
@@ -25,6 +32,7 @@ bg_color = Color(0, 0, 0, 1)
 collision_layer = 4
 axis_lock_linear_z = true
 axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_5jftn")
 gravity_scale = 3.0
 continuous_cd = true
 max_contacts_reported = 1
@@ -41,12 +49,13 @@ collision_mask = 50
 [node name="CollisionShape" type="CollisionShape3D" parent="CollisionZone"]
 shape = SubResource("SphereShape3D_tvsmk")
 
-[node name="Sprite(Placeholder)" type="Sprite3D" parent="."]
-transparent = false
-texture = SubResource("PlaceholderTexture2D_niyua")
+[node name="Sprite(Placeholder)" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_8p2pc")
+mesh = SubResource("SphereMesh_eifb3")
 
 [node name="DebugInfo" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.828285, 0.560307, 0, -0.560307, 0.828285, 0, 0.48913, 0)
+visible = false
 billboard = 1
 texture = SubResource("ViewportTexture_bxe68")
 

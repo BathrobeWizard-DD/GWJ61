@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqft2qnmisa61"]
+
+[ext_resource type="Script" path="res://Game/Scripts/Traps.gd" id="1_qu4wg"]
+[ext_resource type="PackedScene" uid="uid://gyf1t1mugrha" path="res://Game/Assets/Objects/Stalagmite_A.tscn" id="2_4sdgo"]
+[ext_resource type="Script" path="res://Game/Assets/Objects/Stalagmite_A.gd" id="3_priel"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nva8u"]
+size = Vector3(0.588789, 2.78652, 0.631331)
+
+[node name="Stlagmate trap" type="Area3D"]
+transform = Transform3D(0.999995, -0.00326365, -1.31581e-05, -0.00326365, -0.999987, -0.00403178, -1.64204e-10, 0.0040318, -0.999992, 0.247689, 2.23208, -0.302057)
+script = ExtResource("1_qu4wg")
+Damage = 10
+
+[node name="Stalagmite_A" parent="." instance=ExtResource("2_4sdgo")]
+transform = Transform3D(0.286, 0, 0, 0, 0.396, 3.04385e-10, 0, -2.3681e-10, 0.509, -0.294189, -1.07288e-06, -0.350653)
+script = ExtResource("3_priel")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.262671, 0.670124, -0.360233)
+shape = SubResource("BoxShape3D_nva8u")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.28525, 0, 0, 9.31323e-10, 1.00115, -0.0869783, 0.751405, -0.637374)
+aabb = AABB(-0.474619, -1, -0.15409, 0.949237, 2, 0.793532)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler3D" to="Stalagmite_A" method="_on_visible_on_screen_enabler_3d_screen_exited"]
