@@ -16,6 +16,5 @@ func handle(_player: PlayerController, event: InputEvent) -> PlayerEffect:
 	if event.is_action_pressed("move_jump"):
 		velocity.y = Player.JUMP_VELOCITY
 		movement = Player.Movement.JUMPING
-	
 
 	return self

@@ -1,9 +1,29 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqb8p58mon3n8"]
+[gd_scene load_steps=18 format=3 uid="uid://bqb8p58mon3n8"]
 
 [ext_resource type="Script" path="res://Game/Scripts/Dummy_Enemy.gd" id="1_xxm0w"]
 [ext_resource type="Texture2D" uid="uid://c00lhkdnrsvl4" path="res://Game/Assets/2D Art/Characters/Enemies/Skeleton_Enemy_Sheet.png" id="2_m4xh4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ybpdu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t71s"]
+atlas = ExtResource("2_m4xh4")
+region = Rect2(0, 1530, 500, 550)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rinhe"]
+atlas = ExtResource("2_m4xh4")
+region = Rect2(500, 1530, 500, 550)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy3wi"]
+atlas = ExtResource("2_m4xh4")
+region = Rect2(1000, 1530, 500, 550)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrdg7"]
+atlas = ExtResource("2_m4xh4")
+region = Rect2(1500, 1530, 500, 550)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pus1"]
+atlas = ExtResource("2_m4xh4")
+region = Rect2(2000, 1530, 500, 550)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2envk"]
 atlas = ExtResource("2_m4xh4")
@@ -35,6 +55,26 @@ region = Rect2(1536, 1024, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y3b0a"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t71s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rinhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy3wi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrdg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pus1")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 3.0,
 "texture": SubResource("AtlasTexture_2envk")
@@ -70,13 +110,16 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_p0t8k"]
+size = Vector3(8, 3, 1)
+
 [node name="CharacterBody3D2" type="CharacterBody3D"]
-collision_layer = 256
-collision_mask = 513
+collision_layer = 32
+collision_mask = 2
 script = ExtResource("1_xxm0w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.231926, -0.306019, -2.81911)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.231926, -0.748535, -2.81911)
 shape = SubResource("CapsuleShape3D_ybpdu")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -84,10 +127,19 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.3242, -0.8241, -2.75
 shaded = true
 alpha_cut = 3
 sprite_frames = SubResource("SpriteFrames_y3b0a")
-animation = &"Run"
+animation = &"Attack"
 autoplay = "Idle"
 
 [node name="move" type="Timer" parent="."]
 autostart = true
 
+[node name="Detection" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="DetectionZone" type="CollisionShape3D" parent="Detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.3, -2.5)
+shape = SubResource("BoxShape3D_p0t8k")
+
 [connection signal="timeout" from="move" to="." method="_on_move_timeout"]
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]

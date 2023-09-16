@@ -3,10 +3,7 @@ extends PlayerEffect
 
 
 func is_enabled(player: PlayerController) -> bool:
-	return (
-		player.state & Player.Movement.JUMPING
-		or player.state & Player.Movement.FALLING
-	)
+	return player.state & Player.Movement.JUMPING or player.state & Player.Movement.FALLING
 
 
 func handle(player: PlayerController, _delta: float) -> PlayerEffect:
