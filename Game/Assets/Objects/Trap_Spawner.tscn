@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://i7xtddmdx654"]
+
+[ext_resource type="Script" path="res://Game/Scripts/Trap_Spawner.gd" id="1_alhhd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4tgg"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.470588)
+
+[sub_resource type="BoxMesh" id="BoxMesh_njf58"]
+material = SubResource("StandardMaterial3D_d4tgg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qps1h"]
+albedo_color = Color(1, 0.317647, 1, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_y4iv4"]
+material = SubResource("StandardMaterial3D_qps1h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5ylw"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kqsuo"]
+material = SubResource("StandardMaterial3D_h5ylw")
+radius = 0.365
+height = 0.83
+
+[node name="Trap_Master_Spawner" type="Node3D"]
+script = ExtResource("1_alhhd")
+trap_speed = 10
+
+[node name="Placement" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_njf58")
+
+[node name="Rotation" type="MeshInstance3D" parent="Placement"]
+transform = Transform3D(-0.00290862, -0.503918, 0.0329137, -9.11879e-10, 0.0329142, 0.503926, -0.504992, 0.0029024, -0.000189571, -0.469951, 0.05115, 0.107086)
+mesh = SubResource("TorusMesh_y4iv4")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.81584)
+gizmo_extents = 1.06
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(-0.96567, 0.257548, 0.0339284, 0.255955, 0.965637, -0.0450764, -0.0443719, -0.0348448, -0.998407, -0.0617746, 0, 0)
+target_position = Vector3(3.465, -1, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.947035, 0, 0)
+mesh = SubResource("SphereMesh_kqsuo")
+
+[node name="Spawn" type="Timer" parent="."]

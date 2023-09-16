@@ -23,6 +23,7 @@ Variables="*res://Globals/Variables.gd"
 Context="*res://Globals/Context.gd"
 SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 ScreenWipe="*res://UI/Screen_Wipe.tscn"
+GlobalTimer="*res://Game/Assets/timer.tscn"
 
 [editor]
 

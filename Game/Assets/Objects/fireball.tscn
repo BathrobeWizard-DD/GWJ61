@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://2c27ahi6qbff"]
+
+[ext_resource type="Script" path="res://Game/Scripts/Traps.gd" id="1_6bseo"]
+[ext_resource type="Texture2D" uid="uid://ceqpnxf10tu0d" path="res://Game/Assets/2D Art/Fire Spin/Firespin_0000s_0000_Layer-4.png" id="2_pok5n"]
+[ext_resource type="Texture2D" uid="uid://yfm7kqmffd1s" path="res://Game/Assets/2D Art/Fire Spin/Firespin_0000s_0001_Layer-3.png" id="3_bh5im"]
+[ext_resource type="Texture2D" uid="uid://d0d0784giyxir" path="res://Game/Assets/2D Art/Fire Spin/Firespin_0000s_0002_Layer-2.png" id="4_vf83p"]
+[ext_resource type="Texture2D" uid="uid://cmdcmf4f5vau6" path="res://Game/Assets/2D Art/Fire Spin/Firespin_0000s_0003_Layer-1.png" id="5_tqjn8"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_mw320"]
+frames = 4
+speed_scale = 10.7
+frame_0/texture = ExtResource("2_pok5n")
+frame_1/texture = ExtResource("3_bh5im")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_vf83p")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_tqjn8")
+frame_3/duration = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36v2n"]
+transparency = 1
+albedo_texture = SubResource("AnimatedTexture_mw320")
+emission_enabled = true
+emission = Color(0.45098, 0.176471, 0.0627451, 1)
+emission_energy_multiplier = 31.05
+uv1_scale = Vector3(1.065, 1.98, -0.475)
+uv1_offset = Vector3(-0.055, 0, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_is2jx"]
+material = SubResource("StandardMaterial3D_36v2n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u84um"]
+albedo_color = Color(0.368627, 0.12549, 0.0901961, 1)
+emission_enabled = true
+emission = Color(0.505882, 0.278431, 0.0509804, 1)
+emission_energy_multiplier = 4.21
+
+[sub_resource type="SphereMesh" id="SphereMesh_mtm7h"]
+material = SubResource("StandardMaterial3D_u84um")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_et7qo"]
+
+[node name="HitBox" type="Area3D"]
+script = ExtResource("1_6bseo")
+Damage = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.152, 0, 0, 0, 1.2, 0, 0, 0)
+mesh = SubResource("SphereMesh_is2jx")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.226934, 0.276091, 0.808657, -0.98177, 0.129946, 0.172736, -0.0606572, -1.0703, 0.22957, 0, 0, 0)
+mesh = SubResource("SphereMesh_is2jx")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.787035, 0, 0, 0, 1, 0, 0, 0, 0.856014, 0, 0, 0)
+mesh = SubResource("SphereMesh_mtm7h")
+
+[node name="Shoot" type="Timer" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_et7qo")

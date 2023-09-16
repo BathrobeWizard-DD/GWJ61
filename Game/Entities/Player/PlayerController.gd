@@ -6,6 +6,11 @@ signal animation_changed(animation: String)
 signal collides(node: PhysicsBody3D)
 signal interact(node: PhysicsBody3D)
 
+
+@export var MAXHealth:int
+var Health:int
+
+
 var state: int = 0x000000000000000000
 var condition: Player.Condition = Player.Condition.ALIVE
 var movement: Player.Movement = Player.Movement.IDLE
@@ -82,6 +87,8 @@ func apply_effect(handler: PlayerEffect, event) -> void:
 
 
 func _ready() -> void:
+	Health = MAXHealth
+	
 	interaction_zone.body_entered.connect(func(body): _on_interaction(body))
 	collision_zone.body_entered.connect(func(body): _on_collision(body))
 	Context.player = self
@@ -123,5 +130,10 @@ func _on_interaction(body: Node3D) -> void:
 
 # endregion
 
-
+func take_damage(amount:int)->void:
+	print("You took", amount," of damage")
+	print(Health)
+	if Health <=0:
+		Health = MAXHealth
+		Variables.timeloss = true
 	

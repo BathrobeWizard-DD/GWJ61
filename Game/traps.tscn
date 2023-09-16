@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq2qsbtpwe2ur"]
+
+[ext_resource type="Script" path="res://Game/Scripts/Traps.gd" id="1_77r06"]
+
+[node name="Traps" type="Area3D"]
+script = ExtResource("1_77r06")
